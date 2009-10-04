@@ -456,6 +456,7 @@ function save_student()
 	var xmlhttp = get_ajax_request();
 	xmlhttp.onreadystatechange = function() {
 		if ( xmlhttp.readyState == 4 ) {
+			alert(xmlhttp.responseText);
 			change_managed_class(classid);
 			clear_student_form();
 		}

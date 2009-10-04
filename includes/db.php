@@ -431,7 +431,15 @@ class DGradeDB
 		$surname = addslashes($surname);
 		$email = addslashes($email);
 		$paremail = addslashes($paremail);
-		return $this->query("INSERT INTO dgr_student VALUES ( nextval('dgr_student_id_seq'), '{$name}', '{$surname}', '{$email}', '{$paremail}', {$classid} )");
+		$this->query("BEGIN");
+		$this->query("INSERT INTO dgr_student VALUES ( nextval('dgr_student_id_seq'), '{$name}', '{$surname}', '{$email}', '{$paremail}', {$classid} )");
+		$r = $this->query("SELECT currval('dgr_student_id_seq')");
+		$row = pg_fetch_row($r);
+		$id = $row[0];
+		$r = $this->query("SELECT DISTINCT day_start, day_end, semester_id FROM dgr_attendance");
+		while ( $row = pg_fetch_row($r) )
+			$this->query("INSERT INTO dgr_attendance VALUES ( nextval('dgr_attendance_id_seq'), '{$row[0]}', '{$row[1]}', {$id}, {$row[2]}, 0, 0, 0 )");
+		$this->query("COMMIT");
 	}
 
 	function save_student_info( $id, $name, $surname, $email, $paremail )

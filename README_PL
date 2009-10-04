@@ -1,0 +1,152 @@
+=======================================================================
+dgrade
+------
+
+Wersja 0.1
+
+Sieciowy dziennik szkolny, pozwalający wychowawcy klasy
+oraz nauczycielom dodawanie, przeglądanie i edycję ocen
+oraz frekwencji prowadzonych uczniów. Pozwala również na informowanie
+drogą mailową o ocenach uczniów oraz ich rodziców.
+
+=======================================================================
+
+Autor: Łukasz Krawiec
+       fae@onet.eu
+
+=======================================================================
+
+Wymagania:
+    
+    - po stronie serwera:
+        - PostgreSQL w wersji 8.0 lub wyższej
+        - PHP w wersji 5.2 lub wyższej z zainstalowanym modułem pg
+        - serwer HTTP z obsługą PHP
+        
+    - po stronie klienta:
+        - przeglądarka internetowa obsługująca XHTML 1.0, CSS
+          oraz Javascript
+        
+Dodatkowe uwagi:
+    
+    Nie jest zalecane korzystanie z aplikacji poprzez przeglądarkę
+    Internet Explorer, z powodu niepełnej obsługi XHTML oraz CSS,
+    z powodu której mogą wystąpić problemy z działaniem.
+    Zalecane przeglądarki to Mozilla Firefox, Opera oraz Safari.
+    
+=======================================================================
+
+Instalacja:
+
+    1. Wyedytować plik config.php znajdujący się w katalogu głównym,
+       a następnie ustawić odpowiednio zmienne dotyczące połączenia
+       z bazą danych oraz języka. Zmiana DGRADE_DEFAULT_STYLE
+       nie jest zwykle dobrym pomysłem.
+   
+    2. Wejść poprzez przeglądarkę do katalogu /install i wypełnić
+       formularz zgodnie z instrukcjami. UWAGA: jeśli zapomnisz
+       wpisanego hasła, konieczne będzie powtórzenie instalacji.
+
+    3. Po pomyślnie ukończonej instalacji, usunąć z serwera
+       katalog /install.
+       
+    4. Gratulacje. Możesz zalogować się jako administrator i rozpocząć
+       korzystanie z aplikacji.
+
+=======================================================================
+
+Korzystanie z programu:
+
+    Okno programu podzielone jest na 3 sekcje:
+    
+        - sekcja użytkownika:
+            - imię i nazwisko aktualnie zalogowanego użytkownika
+            - wylogowanie się
+            - zmiana danych dotyczących użytkownika (e-mail,
+              hasło etc.) UWAGA: ustawienie e-maila jest wymagane
+              do wysyłania ocen uczniom i rodzicom
+            - administracja systemem (przy zalogowaniu
+              jako administrator)
+            
+        - sekcja klasy i semestru:
+            - wybór sposobu prezentacji danych spośród dostępnych:
+                uczeń -> oceny ze wszystkich przedmiotów
+                przedmiot -> oceny wszystkich uczniów danej klasy
+            - wybór przeglądanej klasy i semestru
+            - edycja danych dotyczących klasy (przy zalogowaniu jako
+              administrator, bądź też wychowawca klasy)
+            - edycja danych dotyczących semestru (przy zalogowaniu
+              jako administrator)
+              
+        - sekcja danych, która z kolei dzieli się na 2 panele:
+            - lewy panel:
+                - wybór z listy uczniów, użytkowników,
+                  bądź przedmiotów, w zależności od kontekstu
+            - prawy panel:
+                - prezentacja i edytowanie (jeśli możliwe dla
+                  danego użytkownika) wybranych danych
+                - wysyłanie ocen do uczniów i rodziców
+                
+    Wprowadzanie danych:
+    
+        - oceny:
+            - cząstkowe:
+                - dowolna cyfra, po której może następować '+' lub '-'
+                - wiele ocen rozdzielamy znakiem ',' przed i po którym
+                  mogą występować białe znaki
+            - semestralna: dowolny tekst
+            - uwagi:
+                - pole opcjonalne, wyświetlane jedynie wtedy,
+                  gdy niepuste
+                - dowolny tekst
+                
+        - frekwencja:
+            - dostępne tylko dla wychowawcy klasy oraz administratora
+            - 3 pola odpowiadające nieobecnościom, nieobecnościom
+              usprawiedliwionym oraz spóźnieniom
+            - wypełnianie:
+                1. Wybór odpowiedniego tygodnia z listy.
+                2. Wypełnienie pól liczbami naturalnymi.
+                
+    Administracja:
+    
+        Niektóre sekcje dostępne również w okrojonej postaci
+        dla wychowawcy klasy.
+        
+        1. Klasy:
+            - dostępne również dla wychowawcy klasy
+            - ustawienie nazwy, roku rozpoczęcia oraz wychowawcy
+              istniejącej klasy
+            - dodanie nowej klasy
+            - edycja listy uczniów oraz danych dotyczących wybranego
+              ucznia (w tym e-maila oraz e-maila rodzica)
+              
+        2. Przedmioty i semestry:
+            - dodawanie i usuwanie przedmiotów prowadzonych w szkole
+            - dodawanie i usuwanie semestrów
+            
+        3. Przedmioty klasy:
+            - dostępne również dla wychowawcy klasy
+            - dodawanie i usuwanie przedmiotów prowadzonych w danej
+              klasie w danym semestrze
+            - ustawianie prowadzącego danego przedmiotu
+            - opcjonalne zablokowanie możliwości wprowadzania ocen
+              przed nauczyciela przedmiotu (w takim wypadku oceny
+              wprowadzać mogą jedynie administratorzy systemu
+              oraz wychowawca klasy)
+            - opcjonalne ustawianie semestralnej oceny opisowej
+              (wpływa na jej prezentację)
+              
+        4. Użytkownicy:
+            - dodawanie i usuwanie użytkowników systemu
+            - zmiana danych dotyczących użytkownika (e-mail, hasło,
+              poziom, dane osobiste)
+      
+=======================================================================
+
+Planowane funkcjonalności:
+
+    - eksport ocen i frekwencji do "drukowalnego" formatu np. PS, PDF
+    - interfejs w języku polskim
+    - dokładniejsze informacje o wykonywanych działaniach
+      (takich jak wysyłanie maili, udana/nieudana edycja danych etc.)
