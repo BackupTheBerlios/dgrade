@@ -65,7 +65,7 @@ if ( $_GET['view'] == 1 ) {
 </thead>
 <?php
 foreach ( $grades as $g ) {
-	if ( $user->get_level() == 2 && $user->get_uid() != $g['uid'] )
+	if ( ! $canwritebase && $user->get_level() == 2 && $user->get_uid() != $g['uid'] )
 		continue;
 	$canwrite = $canwritebase || ($user->get_uid() == $g['uid'] && $g['block_teacher'] == 'f');
 ?>
