@@ -518,7 +518,6 @@ function save_csubject()
 	var xmlhttp = get_ajax_request();
 	xmlhttp.onreadystatechange = function() {
 		if ( xmlhttp.readyState == 4 ) {
-			alert(xmlhttp.responseText);
 			change_csubjects(false);
 			clear_csubject_form();
 		}
@@ -599,7 +598,6 @@ function save_semester()
 	var xmlhttp = get_ajax_request();
 	xmlhttp.onreadystatechange = function() {
 		if ( xmlhttp.readyState == 4 ) {
-			alert(xmlhttp.responseText);
 			sel.innerHTML = xmlhttp.responseText;
 		}
 	};

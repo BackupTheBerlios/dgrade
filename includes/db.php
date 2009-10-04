@@ -70,6 +70,7 @@ class DGradeDB
 
 	function add_user( $login, $pass, $name, $surname, $email, $level = 2 )
 	{
+		$pass = sha1($pass);
 		$name = addslashes($name);
 		$surname = addslashes($surname);
 		$email = addslashes($email); /* just in case */
@@ -242,7 +243,7 @@ class DGradeDB
 	{
 		$r = $this->query("SELECT class_id, name FROM dgr_class WHERE tutor_id = {$uid}");
 		$ret = array();
-		if ( $r ) {
+		if ( $r && pg_num_rows($r) > 0 ) {
 			$row = pg_fetch_assoc($r);
 			$ret[] = $row;
 		}
@@ -554,7 +555,7 @@ class DGradeDB
 		$subid = (int)$subid;
 		$teachid = (int)$teachid;
 		$block = $block ? 'TRUE' : 'FALSE';
-		$desc = $block ? 'TRUE' : 'FALSE';
+		$desc = $desc ? 'TRUE' : 'FALSE';
 		$this->query("BEGIN");
 		$this->query("INSERT INTO dgr_subject_semester VALUES ( nextval('dgr_subject_semester_id_seq'), {$subid}, {$block}, {$desc}, {$semid}, {$teachid}, {$classid} )");
 		$r = $this->query("SELECT currval('dgr_subject_semester_id_seq')");

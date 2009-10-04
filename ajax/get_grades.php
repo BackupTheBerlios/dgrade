@@ -65,6 +65,8 @@ if ( $_GET['view'] == 1 ) {
 </thead>
 <?php
 foreach ( $grades as $g ) {
+	if ( $user->get_level() == 2 && $user->get_uid() != $g['uid'] )
+		continue;
 	$canwrite = $canwritebase || ($user->get_uid() == $g['uid'] && $g['block_teacher'] == 'f');
 ?>
 <?php if ( ! $canwrite ) { ?>
@@ -113,7 +115,7 @@ foreach ( $grades as $g ) {
 <?php if ( $g['descriptive_grade'] == 'f' ) { ?>
 	<input style="width:99%" type="text" id="semestral<?php echo $g['id']; ?>" value="<?php echo $g['semestral']; ?>" />
 <?php } else { ?>
-	<textarea style="width:99%" rows="4"><?php echo $g['semestral']; ?></textarea>
+	<textarea style="width:99%" rows="4" id="semestral<?php echo $g['id']; ?>"><?php echo $g['semestral']; ?></textarea>
 <?php } ?>
 	</td>
 </tr>

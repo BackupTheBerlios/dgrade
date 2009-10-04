@@ -70,12 +70,12 @@ $users = dgr_get_users();
 
 <div class="right">
 
+<?php if ( $user->get_level() == 0 ) { ?>
 <span class="menuitem"><a href="main.php"><?php echo gettext('Main page'); ?></a></span>
-
-<span class="menuitem"><a href="subjects.php"><?php echo gettext('Manage subjects'); ?></a></span>
-<span class="menuitem"><a href="class_subjects.php"><?php echo gettext('Manage class subjects'); ?></a></span>
-<span class="menuitem"><a href="users.php"><?php echo gettext('Manage users'); ?></a></span>
-
+<span class="menuitem"><a href="classes.php"><?php echo gettext('Classes'); ?></a></span>
+<span class="menuitem"><a href="subjects.php"><?php echo gettext('Subjects & semesters'); ?></a></span>
+<span class="menuitem"><a href="class_subjects.php"><?php echo gettext('Class subjects'); ?></a></span>
+<?php } ?>
 <span class="menuitem"><a href="settings.php"><?php echo gettext('Settings'); ?></a></span>
 </div>
 

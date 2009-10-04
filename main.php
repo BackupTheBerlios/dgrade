@@ -36,8 +36,11 @@ try {
 	$style = dgr_get_style('.', $user->get_styleid());
 	$semesters = dgr_get_semesters();
 	$classes = $user->get_classes($semesters[0]['id']);
-	$class = new DGradeClass($classes[0]['class_id']);
-	$classload = true;
+	if ( count($classes) > 0 ) {
+		$class = new DGradeClass($classes[0]['class_id']);
+		$classload = true;
+	} else
+		$classload = false;
 } catch ( Exception $e ) {
 	$error = true;
 	$classload = false;

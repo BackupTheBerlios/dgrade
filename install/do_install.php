@@ -88,7 +88,7 @@ if ( ! sql_tables_from_file('create_tables.sql', $dblink) )
 	dgr_error(array('Cannot install dGrade', $dblink->get_error()));
 
 
-if ( ! $dblink->add_user($_POST['user'], sha1($_POST['pass']), $_POST['name'], $_POST['surname'], $_POST['email'], 0) )
+if ( ! $dblink->add_user($_POST['user'], $_POST['pass'], $_POST['name'], $_POST['surname'], $_POST['email'], 0) )
 	dgr_error(array('Cannot install dGrade', $dblink->get_error()));
 
 ?>
