@@ -1,0 +1,9 @@
+DROP TABLE dgr_grade;
+DROP TABLE dgr_attendance;
+DROP TABLE dgr_student;
+DROP TABLE dgr_subject_semester;
+DROP TABLE dgr_semester;
+DROP TABLE dgr_subject;
+DROP TABLE dgr_class;
+DROP TABLE dgr_user;
+DROP TABLE dgr_style;

@@ -1,0 +1,230 @@
+html, body {
+	background-color:gainsboro;
+	height:100%;
+}
+
+/* links */
+a:link {
+	color:midnightblue;
+	text-decoration:underline;
+}
+
+a:visited {
+	color:midnightblue;
+	text-decoration:underline;
+}
+
+a:hover {
+	color:indigo;
+	text-decoration:none;
+}
+
+a:active {
+	text-decoration:none;
+}
+
+#main {
+	margin-left:auto;
+	margin-right:auto;
+	width:1024px;
+	height:100%;
+}
+
+.header {
+	padding-top:16px;
+	padding-bottom:64px;
+	text-align:center;
+}
+
+.rounded {
+	-moz-border-radius:0.5em;
+	-webkit-border-radius:0.5em;
+	background-color:white;
+	padding:0.5em;
+}
+
+.centered {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.tableform {
+	border:5px outset lightgrey;
+	border-spacing:0;
+	-moz-border-radius:1em;
+	-webkit-border-radius:1em;
+	/* maybe -moz-box-shadow in the future */
+	background-color:white;
+}
+
+.bottombordered {
+	border-bottom:5px groove lightgrey;
+}
+
+.error {
+	color:red;
+}
+
+.hiddenimg {
+	display:none;
+}
+
+#topmenu {
+	width:100%;
+	font-size:10pt;
+	line-height:150%;
+	padding-top:1em;
+	padding-bottom:2em;
+	height:32px;
+}
+
+#topmenu:after {
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+#nav {
+	width:100%;
+	background-color:white;
+	border:5px outset lightgrey;
+	font-family:sans-serif;
+	font-style:oblique;
+	line-height:150%;
+	height:64px;
+}
+
+#nav:after {
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+#nav span[class~="doubleline"] {
+	line-height:300%;
+}
+
+.menuitem {
+	display:inline;
+	vertical-align:middle;
+	padding:5px 10px 5px 5px;
+	min-height:100%;
+	height:100%;
+}
+
+.left {
+	float:left;
+}
+
+.right {
+	float:right;
+}
+
+#maincontainer {
+	width:100%;
+}
+
+#choosebox {
+	background-color:seashell;
+	border:2px dotted lightgrey;
+	float:left;
+	width:248px; /* 4 px for border and 4 for padding */
+	min-height:100%;
+	font-size:10pt;
+	font-family:serif;
+	line-height:200%;
+	border-collapse:collapse;
+}
+
+#chooseheader {
+	text-align:center;
+	display:block;
+	font-size:12pt;
+	font-weight:bold;
+	border-bottom:2px dotted lightgrey;
+	margin-bottom:1em;
+}
+
+.choosetd {
+	border-top:1px dotted lightgrey;
+	border-bottom:1px dotted lightgrey;
+	border-collapse:collapse;
+}
+
+#workarea {
+	background-color:seashell;
+	border:2px double lightgrey;
+	float:right;
+	font-size:10pt;
+	font-family:serif;
+	line-height:200%;
+	width:760px;
+	min-height:100%;
+	border-collapse:collapse;
+	overflow:auto;
+}
+
+#gradetable {
+	table-layout:fixed;
+	min-width:100%;
+}
+
+.graderow {
+	line-height:200%;
+}
+
+.hidgroup {
+	display:none;
+}
+
+.detailrow {
+	background-color:white;
+}
+
+.showcell {
+	border-left:1px solid lightgrey;
+	border-right:1px solid lightgrey;
+	border-top:1px double lightgrey;
+	border-bottom:1px double lightgrey;
+	border-collapse:collapse;
+	text-align:center;
+}
+
+.hidcell {
+	border-top:1px dotted lightgrey;
+	border-left:1px solid lightgrey;
+	border-right:1px solid lightgrey;
+	border-bottom:1px dotted lightgrey;
+	border-collapse:collapse;
+	text-align:center;
+}
+
+.rowheader {
+	font-weight:bold;
+	width:10em;
+}
+
+.studentheader {
+	width:12em;
+}
+
+.rowfooter {
+	width:10em;
+}
+
+.gradecell {
+	width:1em;
+}
+
+.sendhref {
+	font-size:14pt;
+	text-align:center;
+}
+
+.message {
+	color:green;
+}
