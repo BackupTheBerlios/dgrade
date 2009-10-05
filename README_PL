@@ -49,9 +49,6 @@ Instalacja:
 
     3. Po pomyślnie ukończonej instalacji, usunąć z serwera
        katalog /install.
-       
-    4. Gratulacje. Możesz zalogować się jako administrator i rozpocząć
-       korzystanie z aplikacji.
 
 =======================================================================
 
@@ -110,7 +107,7 @@ Korzystanie z programu:
                 
     Administracja:
     
-        Niektóre sekcje dostępne również w okrojonej postaci
+        Niektóre sekcje dostępne również, w okrojonej postaci,
         dla wychowawcy klasy.
         
         1. Klasy:
@@ -150,3 +147,4 @@ Planowane funkcjonalności:
     - interfejs w języku polskim
     - dokładniejsze informacje o wykonywanych działaniach
       (takich jak wysyłanie maili, udana/nieudana edycja danych etc.)
+    - wyliczanie średniej przedmiotu, ucznia, klasy
