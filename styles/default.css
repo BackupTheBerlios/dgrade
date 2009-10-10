@@ -225,6 +225,12 @@ a:active {
 	text-align:center;
 }
 
-.message {
+.msgbox {
+	padding-top:1em;
+	font-size:12pt;
+	text-align:center;
+}
+
+.green {
 	color:green;
 }

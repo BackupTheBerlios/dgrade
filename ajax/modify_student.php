@@ -27,8 +27,7 @@ dgr_require('/includes/user.php');
 dgr_require('/includes/class.php');
 dgr_require('/includes/student.php');
 
-if ( ! isset($_POST['id']) || ! isset($_POST['c']) || ! isset($_POST['n']) || ! isset($_POST['s']) || ! isset($_POST['e'])
-	|| ! isset($_POST['p']) || ! isset($_POST['qid']) )
+if ( ! isset($_POST['id']) || ! isset($_POST['classid']) || ! isset($_POST['name']) || ! isset($_POST['surname']) || ! isset($_POST['email']) || ! isset($_POST['paremail']) || ! isset($_POST['qid']) )
 	exit;
 
 try {
@@ -38,17 +37,17 @@ try {
 	exit;
 }
 
-$name = stripslashes($_POST['n']);
-$surname = stripslashes($_POST['s']);
-$email = stripslashes($_POST['e']);
-$paremail = stripslashes($_POST['p']);
+$name = stripslashes($_POST['name']);
+$surname = stripslashes($_POST['surname']);
+$email = stripslashes($_POST['email']);
+$paremail = stripslashes($_POST['paremail']);
 
 if ( $_POST['id'] == 0 ) {
-	$class = new DGradeClass($_POST['c']);
+	$class = new DGradeClass($_POST['classid']);
 	if ( $user->get_level() != 0 && $class->get_tutorid() != $user->get_uid() )
 		exit;
 	$dblink = DGradeDB::instance();
-	$dblink->add_student($_POST['c'], $name, $surname, $email, $paremail);
+	$dblink->add_student($_POST['classid'], $name, $surname, $email, $paremail);
 } else if ( $_POST['id'] > 0 ) {
 	$student = new DGradeStudent($_POST['id']);
 	if ( $user->get_level() != 0 && $student->get_tutorid() != $user->get_uid() )

@@ -25,7 +25,7 @@ require_once dirname(__FILE__) . '/../common.php';
 dgr_require('/includes/db.php');
 dgr_require('/includes/user.php');
 
-if ( ! isset($_POST['id']) || ! isset($_POST['n']) || ! isset($_POST['qid']) )
+if ( ! isset($_POST['id']) || ! isset($_POST['name']) || ! isset($_POST['qid']) )
 	exit;
 
 try {
@@ -37,15 +37,15 @@ try {
 if ( $user->get_level() != 0 )
 	exit;
 
-$name = stripslashes($_POST['n']);
+$name = stripslashes($_POST['name']);
 
 $dblink = DGradeDB::instance();
 
 if ( $_POST['id'] == 0 )
 	$dblink->add_subject($name);
 else if ( $_POST['id'] > 0 )
-	$dblink->change_subject($_POST['id'], $name);
-	
+	$dblink->set_subject($_POST['id'], $name);
+
 
 $subjects = dgr_get_subjects();
 

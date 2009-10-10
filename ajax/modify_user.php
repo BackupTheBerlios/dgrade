@@ -25,7 +25,9 @@ require_once dirname(__FILE__) . '/../common.php';
 dgr_require('/includes/db.php');
 dgr_require('/includes/user.php');
 
-if ( ! isset($_POST['id']) || ! isset($_POST['l']) || ! isset($_POST['p']) || ! isset($_POST['n']) || ! isset($_POST['s']) || ! isset($_POST['e']) || ! isset($_POST['lvl']) || ! isset($_POST['qid']) )
+dgr_startup();
+
+if ( ! isset($_POST['id']) || ! isset($_POST['login']) || ! isset($_POST['pass']) || ! isset($_POST['name']) || ! isset($_POST['surname']) || ! isset($_POST['email']) || ! isset($_POST['lvl']) || ! isset($_POST['qid']) )
 	exit;
 
 try {
@@ -34,11 +36,11 @@ try {
 	exit;
 }
 
-$login = stripslashes($_POST['l']);
-$pass = stripslashes($_POST['p']);
-$name = stripslashes($_POST['n']);
-$surname = stripslashes($_POST['s']);
-$email = stripslashes($_POST['e']);
+$login = stripslashes($_POST['login']);
+$pass = stripslashes($_POST['pass']);
+$name = stripslashes($_POST['name']);
+$surname = stripslashes($_POST['surname']);
+$email = stripslashes($_POST['email']);
 
 $dblink = DGradeDB::instance();
 

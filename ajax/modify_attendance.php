@@ -1,6 +1,6 @@
 <?php
 /*
- *      change_semester.php
+ *      save_attendance.php
  *
  *      Copyright 2009 fae <fae@onet.eu>
  *
@@ -25,9 +25,8 @@ require_once dirname(__FILE__) . '/../common.php';
 dgr_require('/includes/db.php');
 dgr_require('/includes/user.php');
 
-dgr_startup();
-
-if ( ! isset($_POST['id']) || ! isset($_POST['n']) || ! isset($_POST['semstart']) || ! isset($_POST['semend']) || ! isset($_POST['qid']) )
+if ( ! isset($_GET['id']) || ! isset($_GET['absent']) || ! isset($_GET['explained']) || ! isset($_GET['late'])
+	|| ! isset($_GET['qid']) )
 	exit;
 
 try {
@@ -36,23 +35,11 @@ try {
 	exit;
 }
 
-if ( $user->get_level() != 0 )
-	exit;
-
 $dblink = DGradeDB::instance();
 
-if ( $_POST['id'] == 0 ) {
-	$start = strtotime($_POST['semstart']);
-	$end = strtotime($_POST['semend']);
-	$dblink->add_semester(stripslashes($_POST['n']), $start, $end);
-} else if( $_POST['id'] > 0 )
-	$dblink->change_semester($_POST['id'], stripslashes($_POST['n']));
+if ( $user->get_level() != 0 && ! $dblink->can_modify_attendance($_GET['id'], $user->get_uid()) )
+	exit;
 
-$semesters = dgr_get_semesters();
+$dblink->set_attendance($_GET['id'], $_GET['absent'], $_GET['explained'], $_GET['late']);
 
 ?>
-
-<option value="0"><?php echo gettext('new semester'); ?></option>
-<?php foreach ( $semesters as $sem ) { ?>
-	<option value="<?php echo $sem['id']; ?>"><?php echo $sem['name']; ?></option>
-<?php } ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- *      save_grades.php
+ *      change_semester.php
  *
  *      Copyright 2009 fae <fae@onet.eu>
  *
@@ -25,8 +25,9 @@ require_once dirname(__FILE__) . '/../common.php';
 dgr_require('/includes/db.php');
 dgr_require('/includes/user.php');
 
-if ( ! isset($_POST['id']) || ! isset($_POST['g']) || ! isset($_POST['n']) || ! isset($_POST['s'])
-	|| ! isset($_POST['qid']) )
+dgr_startup();
+
+if ( ! isset($_POST['id']) || ! isset($_POST['name']) || ! isset($_POST['semstart']) || ! isset($_POST['semend']) || ! isset($_POST['qid']) )
 	exit;
 
 try {
@@ -35,15 +36,23 @@ try {
 	exit;
 }
 
-$dblink = DGradeDB::instance();
-
-if ( $user->get_level() != 0 && ! $dblink->can_modify_grade($_POST['id'], $user->get_uid()) )
+if ( $user->get_level() != 0 )
 	exit;
 
-$grades = dgr_strip_whitespaces(stripslashes($_POST['g']));
-$notes = stripslashes($_POST['n']);
-$semestral = stripslashes($_POST['s']);
+$dblink = DGradeDB::instance();
 
-$dblink->modify_grade($_POST['id'], $grades, $notes, $semestral);
+if ( $_POST['id'] == 0 ) {
+	$start = strtotime($_POST['semstart']);
+	$end = strtotime($_POST['semend']);
+	$dblink->add_semester(stripslashes($_POST['name']), $start, $end);
+} else if( $_POST['id'] > 0 )
+	$dblink->set_semester($_POST['id'], stripslashes($_POST['name']));
+
+$semesters = dgr_get_semesters();
 
 ?>
+
+<option value="0"><?php echo gettext('new semester'); ?></option>
+<?php foreach ( $semesters as $sem ) { ?>
+	<option value="<?php echo $sem['id']; ?>"><?php echo $sem['name']; ?></option>
+<?php } ?>

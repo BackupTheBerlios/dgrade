@@ -30,57 +30,57 @@ class DGradeStudent
 
 	private $id;
 
-	function __construct( $id )
+	public function __construct( $id )
 	{
 		$this->id = $id;
 	}
 
-	function __destruct()
+	public function __destruct()
 	{
 	}
 
-	function get_id()
+	public function get_id()
 	{
 		return $this->id;
 	}
 
-	function get_info()
+	public function get_info()
 	{
 		$dblink = DGradeDB::instance();
 		return $dblink->get_student_info($this->id);
 	}
 
-	function save_info( $name, $surname, $email, $paremail )
+	public function save_info( $name, $surname, $email, $paremail )
 	{
 		$dblink = DGradeDB::instance();
-		return $dblink->save_student_info($this->id, $name, $surname, $email, $paremail);
+		return $dblink->set_student_info($this->id, $name, $surname, $email, $paremail);
 	}
 
-	function get_tutorid()
+	public function get_tutorid()
 	{
 		$dblink = DGradeDB::instance();
 		return $dblink->get_student_tutor($this->id);
 	}
 
-	function get_semester_grades( $semid )
+	public function get_semester_grades( $semid )
 	{
 		$dblink = DGradeDB::instance();
 		return $dblink->get_grades($this->id, $semid);
 	}
 
-	function get_attendance( $semid, &$att )
+	public function get_attendance( $semid, &$att )
 	{
 		$dblink = DGradeDB::instance();
 		return $dblink->get_attendance($this->id, $semid, $att);
 	}
 
-	function get_subject_grades( $subid, $semid )
+	public function get_subject_grades( $subid, $semid )
 	{
 		$dblink = DGradeDB::instance();
 		return $dblink->get_subject_grades($this->id, $subid, $semid);
 	}
 
-	function send( $semid, $from )
+	public function send( $semid, $from )
 	{
 		$dblink = DGradeDB::instance();
 		$info = $dblink->get_student_info($this->id);
@@ -104,7 +104,7 @@ class DGradeStudent
 		$headers = "From: {$from}\r\n";
 		$headers .= "MIME-Version: 1.0\r\n";
 		$headers .= "Content-type: text/plain; charset=utf-8\r\n";
-		$headers .= "Content-Transfer-Encoding: quoted-printable\r\n"; 
+		$headers .= "Content-Transfer-Encoding: quoted-printable\r\n";
 		$ret = true;
 		if ( ! empty($info['email']) )
 			$ret = $ret && mail($info['email'], $subject, $msg, $headers);

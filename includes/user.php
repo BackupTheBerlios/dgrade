@@ -31,7 +31,7 @@ class DGradeUser
 
 	private $classes;
 
-	function __construct( $username = '', $pass = '' )
+	public function __construct( $username = '', $pass = '' )
 	{
 		session_start();
 		if ( ! isset($_SESSION['uid']) ) {
@@ -42,7 +42,7 @@ class DGradeUser
 			} catch ( Exception $e ) {
 				throw $e;
 			}
-			$r = $dblink->get_user_info($username, sha1($pass),
+			$r = $dblink->get_user_info($username, $pass,
 						$uid, $name, $surname, $email,
 						$level, $styleid, $classid);
 			if ( ! $r )
@@ -57,99 +57,99 @@ class DGradeUser
 		}
 	}
 
-	function __destruct()
+	public function __destruct()
 	{
 	}
 
-	function logout()
+	public function logout()
 	{
 		if ( session_id != '' || isset($_COOKIE[session_name()]) )
 			setcookie(session_name(), '', time()-3600, '/');
 		session_destroy();
 	}
 
-	function get_uid()
+	public function get_uid()
 	{
 		return $_SESSION['uid'];
 	}
 
 	/* no need for set_uid, as changing it is not possible */
 
-	function get_name()
+	public function get_name()
 	{
 		return $_SESSION['name'];
 	}
 
-	function set_name( $name )
+	public function set_name( $name )
 	{
 		$_SESSION['name'] = $name;
 	}
 
-	function get_surname()
+	public function get_surname()
 	{
 		return $_SESSION['surname'];
 	}
 
-	function set_surname( $surname )
+	public function set_surname( $surname )
 	{
 		$_SESSION['surname'] = $surname;
 	}
 
-	function get_email()
+	public function get_email()
 	{
 		return $_SESSION['email'];
 	}
 
-	function set_email( $email )
+	public function set_email( $email )
 	{
 		$_SESSION['email'] = $email;
 	}
 
-	function get_level()
+	public function get_level()
 	{
 		return $_SESSION['level'];
 	}
 
-	function set_level( $level )
+	public function set_level( $level )
 	{
 		$_SESSION['level'] = $level;
 	}
 
-	function get_styleid()
+	public function get_styleid()
 	{
 		return $_SESSION['styleid'];
 	}
 
-	function set_styleid( $styleid )
+	public function set_styleid( $styleid )
 	{
 		$styleid = (int)$styleid;
 		$_SESSION['styleid'] = ($styleid > 0) ? $styleid : 1;
 	}
 
-	function get_classid()
+	public function get_classid()
 	{
 		return $_SESSION['classid'];
 	}
 
-	function set_classid( $id )
+	public function set_classid( $id )
 	{
 		$_SESSION['classid'] = (int)$id;
 	}
 
-	function save()
+	public function save()
 	{
 		$dblink = DGradeDB::instance();
-		$dblink->write_user_info($_SESSION['uid'], $_SESSION['name'], $_SESSION['surname'],
+		$dblink->set_user_info($_SESSION['uid'], $_SESSION['name'], $_SESSION['surname'],
 					$_SESSION['email'], $_SESSION['level'], $_SESSION['styleid']);
 	}
 
-	function change_pass( $oldpass, $newpass )
+	public function change_pass( $oldpass, $newpass )
 	{
 		$dblink = DGradeDB::instance();
-		return $dblink->change_user_pass($this->get_uid(), sha1($oldpass), sha1($newpass));
+		return $dblink->set_user_pass($this->get_uid(), $oldpass, $newpass);
 	}
 
-	function get_classes( $semid )
+	public function get_classes( $semid )
 	{
 		$dblink = DGradeDB::instance();
 		if ( $this->get_level() < 2 )
@@ -159,7 +159,7 @@ class DGradeUser
 		return $ret;
 	}
 
-	function get_tutored()
+	public function get_tutored()
 	{
 		$dblink = DGradeDB::instance();
 		return $dblink->get_tutored($this->get_uid());

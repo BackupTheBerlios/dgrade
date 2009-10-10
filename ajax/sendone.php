@@ -45,6 +45,9 @@ $email = $user->get_email();
 if ( empty($email) )
 	die('E-mail not set');
 
-$student->send($_GET['semid'], $email);
+if ( $student->send($_GET['semid'], $email) )
+	echo gettext('Message sent successfully');
+else
+	echo gettext('Message not sent :(');
 
 ?>

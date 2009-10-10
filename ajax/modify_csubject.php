@@ -45,7 +45,7 @@ $block = ($_GET['block'] == 1);
 $desc = ($_GET['desc'] == 1);
 
 if ( $_GET['id'] > 0 )
-	$dblink->change_csubject($_GET['id'], $_GET['subid'], $_GET['teachid'], $block, $desc);
+	$dblink->set_csubject($_GET['id'], $_GET['subid'], $_GET['teachid'], $block, $desc);
 else if ( $_GET['id'] == 0 ) {
 	$id = $dblink->add_csubject($_GET['classid'], $_GET['semid'], $_GET['subid'], $_GET['teachid'], $block, $desc);
 	foreach ( $class->students as $st )

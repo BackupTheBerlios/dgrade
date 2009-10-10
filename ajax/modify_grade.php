@@ -1,6 +1,6 @@
 <?php
 /*
- *      save_attendance.php
+ *      save_grades.php
  *
  *      Copyright 2009 fae <fae@onet.eu>
  *
@@ -25,8 +25,8 @@ require_once dirname(__FILE__) . '/../common.php';
 dgr_require('/includes/db.php');
 dgr_require('/includes/user.php');
 
-if ( ! isset($_GET['id']) || ! isset($_GET['a']) || ! isset($_GET['e']) || ! isset($_GET['l'])
-	|| ! isset($_GET['qid']) )
+if ( ! isset($_POST['id']) || ! isset($_POST['grades']) || ! isset($_POST['notes']) || ! isset($_POST['semestral'])
+	|| ! isset($_POST['qid']) )
 	exit;
 
 try {
@@ -37,9 +37,13 @@ try {
 
 $dblink = DGradeDB::instance();
 
-if ( $user->get_level() != 0 && ! $dblink->can_modify_attendance($_GET['id'], $user->get_uid()) )
+if ( $user->get_level() != 0 && ! $dblink->can_modify_grade($_POST['id'], $user->get_uid()) )
 	exit;
 
-$dblink->modify_attendance($_GET['id'], $_GET['a'], $_GET['e'], $_GET['l']);
+$grades = dgr_strip_whitespaces(stripslashes($_POST['grades']));
+$notes = stripslashes($_POST['notes']);
+$semestral = stripslashes($_POST['semestral']);
+
+$dblink->set_grade($_POST['id'], $grades, $notes, $semestral);
 
 ?>

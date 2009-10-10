@@ -456,13 +456,12 @@ function save_student()
 	var xmlhttp = get_ajax_request();
 	xmlhttp.onreadystatechange = function() {
 		if ( xmlhttp.readyState == 4 ) {
-			alert(xmlhttp.responseText);
 			change_managed_class(classid);
 			clear_student_form();
 		}
 	};
-	var url = 'ajax/save_student_info.php';
-	var params = 'id=' + parseInt(id) + '&c=' + parseInt(classid) + '&n=' + encodeURIComponent(name) + '&s=' + encodeURIComponent(surname) + '&e=' + encodeURIComponent(email) + '&p=' + encodeURIComponent(paremail) + '&qid=' + Math.random();
+	var url = 'ajax/modify_student.php';
+	var params = 'id=' + parseInt(id) + '&classid=' + parseInt(classid) + '&name=' + encodeURIComponent(name) + '&surname=' + encodeURIComponent(surname) + '&email=' + encodeURIComponent(email) + '&paremail=' + encodeURIComponent(paremail) + '&qid=' + Math.random();
 	xmlhttp.open('POST', url, true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.setRequestHeader("Content-length", params.length);
@@ -493,7 +492,7 @@ function save_user()
 			clear_user_form();
 		}
 	};
-	var url = 'ajax/save_user_info.php';
+	var url = 'ajax/modify_user.php';
 	var params = 'id=' + parseInt(id) + '&l=' + encodeURIComponent(login) + '&p=' + encodeURIComponent(pass) + '&n=' + encodeURIComponent(name) + '&s=' + encodeURIComponent(surname) + '&e=' + encodeURIComponent(email) + '&lvl=' + parseInt(level) + '&qid=' + Math.random();
 	xmlhttp.open('POST', url, true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -523,7 +522,7 @@ function save_csubject()
 			clear_csubject_form();
 		}
 	};
-	var url = 'ajax/save_csubject.php?id=' + id + '&classid=' + classid + '&semid=' + semid + '&subid=' + subid + '&teachid=' + teachid + '&block=' + block + '&desc=' + desc + '&qid=' + Math.random();
+	var url = 'ajax/modify_csubject.php?id=' + id + '&classid=' + classid + '&semid=' + semid + '&subid=' + subid + '&teachid=' + teachid + '&block=' + block + '&desc=' + desc + '&qid=' + Math.random();
 	xmlhttp.open('GET', url, true);
 	xmlhttp.send(null);
 }
@@ -537,7 +536,6 @@ function delete_csubject()
 	var xmlhttp = get_ajax_request();
 	xmlhttp.onreadystatechange = function() {
 		if ( xmlhttp.readyState == 4 ) {
-			alert(xmlhttp.responseText);
 			change_csubjects(false);
 			clear_csubject_form();
 		}
@@ -560,8 +558,8 @@ function save_subject()
 			choosebox.innerHTML = xmlhttp.responseText;
 		}
 	};
-	var url = 'ajax/change_subject.php';
-	var params = 'id=' + parseInt(id) + '&n=' + encodeURIComponent(name) + '&qid=' + Math.random();
+	var url = 'ajax/modify_subject.php';
+	var params = 'id=' + parseInt(id) + '&name=' + encodeURIComponent(name) + '&qid=' + Math.random();
 	xmlhttp.open('POST', url, true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.setRequestHeader("Content-length", params.length);
@@ -602,8 +600,8 @@ function save_semester()
 			sel.innerHTML = xmlhttp.responseText;
 		}
 	};
-	var url = 'ajax/change_semester.php'
-	var params = 'id=' + parseInt(id) + '&n=' + encodeURIComponent(name) + '&semstart=' + encodeURIComponent(semstart) + '&semend=' + encodeURIComponent(semend) + '&qid=' + Math.random();
+	var url = 'ajax/modify_semester.php'
+	var params = 'id=' + parseInt(id) + '&name=' + encodeURIComponent(name) + '&semstart=' + encodeURIComponent(semstart) + '&semend=' + encodeURIComponent(semend) + '&qid=' + Math.random();
 	xmlhttp.open('POST', url, true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.setRequestHeader("Content-length", params.length);

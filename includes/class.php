@@ -35,7 +35,7 @@ class DGradeClass
 
 	public $students;
 
-	function __construct( $classid )
+	public function __construct( $classid )
 	{
 		try {
 			$dblink = DGradeDB::instance();
@@ -49,61 +49,61 @@ class DGradeClass
 		$this->id = $classid;
 	}
 
-	function __destruct()
+	public function __destruct()
 	{
 	}
 
-	function get_id()
+	public function get_id()
 	{
 		return $this->id;
 	}
 
-	function get_name()
+	public function get_name()
 	{
 		return $this->name;
 	}
 
-	function set_name( $n )
+	public function set_name( $n )
 	{
 		$this->name = $n;
 	}
 
-	function get_startyear()
+	public function get_startyear()
 	{
 		return $this->startyear;
 	}
 
-	function set_startyear( $y )
+	public function set_startyear( $y )
 	{
 		$this->startyear = (int)$y;
 	}
 
-	function get_tutorid()
+	public function get_tutorid()
 	{
 		return $this->tutorid;
 	}
 
-	function set_tutorid( $id )
+	public function set_tutorid( $id )
 	{
 		$this->tutorid = (int)$id;
 	}
 
-	function save()
+	public function save()
 	{
 		$dblink = DGradeDB::instance();
-		$dblink->write_class_info($this->id, $this->name, $this->startyear, $this->tutorid);
+		$dblink->set_class_info($this->id, $this->name, $this->startyear, $this->tutorid);
 	}
 
-	function get_subjects( $semid )
+	public function get_subjects( $semid )
 	{
 		$dblink = DGradeDB::instance();
-		return $dblink->get_class_subjects( $this->id, $semid );
+		return $dblink->get_class_subjects($this->id, $semid);
 	}
 
-	function get_student_brief( $id )
+	public function get_student_brief( $id )
 	{
 		$dblink = DGradeDB::instance();
-		return $dblink->get_student_info_brief( $id );
+		return $dblink->get_student_info_brief($id);
 	}
 
 }

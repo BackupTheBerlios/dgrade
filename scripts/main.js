@@ -143,7 +143,7 @@ function change_attendance()
 			absn.value = json.absent;
 			expl.value = json.explained;
 			late.value = json.late;
-			hrefobj.onclick = 'save_attendance(' + attid + ')';
+			hrefobj.onclick = function() { save_attendance(attid); };
 		}
 	};
 	var url = 'ajax/get_attendance.php?id=' + attid + '&qid=' + Math.random();
@@ -165,8 +165,8 @@ function save_grades( id )
 			change_grades(chooseid);
 		}
 	};
-	var url = 'ajax/save_grades.php';
-	var params = 'id=' + id + '&g=' + encodeURIComponent(grades) + '&n=' + encodeURIComponent(notes) + '&s=' + encodeURIComponent(semestral) + '&qid=' + Math.random();
+	var url = 'ajax/modify_grade.php';
+	var params = 'id=' + id + '&grades=' + encodeURIComponent(grades) + '&notes=' + encodeURIComponent(notes) + '&semestral=' + encodeURIComponent(semestral) + '&qid=' + Math.random();
 	xmlhttp.open('POST', url, true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.setRequestHeader("Content-length", params.length);
@@ -188,20 +188,20 @@ function save_attendance( id )
 			change_grades(chooseid);
 		}
 	};
-	var url = 'ajax/save_attendance.php?id=' + id + '&a=' + parseInt(absent) + '&e=' + parseInt(explained) + '&l=' + parseInt(late) + '&qid=' + Math.random();
+	var url = 'ajax/modify_attendance.php?id=' + id + '&absent=' + parseInt(absent) + '&explained=' + parseInt(explained) + '&late=' + parseInt(late) + '&qid=' + Math.random();
 	xmlhttp.open('GET', url, true);
 	xmlhttp.send(null);
 }
 
 function sendone( id, semid )
 {
-	// TODO: nice info
+	var msg = document.getElementById('mailmsg');
+	msg.innerHTML = '...';
 	var xmlhttp = get_ajax_request();
-	xmlhttp.onreadystatechange = function() {
-	};
 	var url = 'ajax/sendone.php?id=' + parseInt(id) + '&semid=' + parseInt(semid) + '&qid=' + Math.random();
-	xmlhttp.open('GET', url, true);
+	xmlhttp.open('GET', url, false);
 	xmlhttp.send(null);
+	msg.innerHTML = xmlhttp.responseText;
 }
 
 function sendall( semid )
