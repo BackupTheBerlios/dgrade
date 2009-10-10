@@ -46,7 +46,7 @@ class DGradeUser
 						$uid, $name, $surname, $email,
 						$level, $styleid, $classid);
 			if ( ! $r )
-				throw new Exception('Bad username or password');
+				throw new Exception(gettext('Bad username or password'));
 			$_SESSION['uid'] = $uid;
 			$_SESSION['name'] = $name;
 			$_SESSION['surname'] = $surname;

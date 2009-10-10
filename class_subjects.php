@@ -82,7 +82,7 @@ $teachers = dgr_get_users(true);
 <div id="topmenu">
 
 <div class="left">
-<span><?php echo gettext('Logged in as:') . ' ' . $user->get_name() . ' ' . $user->get_surname(); ?></span>
+<span><?php echo gettext('Logged in as') . ': ' . $user->get_name() . ' ' . $user->get_surname(); ?></span>
 <br />
 <span><a href="index.php?logout=1"><?php echo gettext('Logout'); ?></a></span>
 </div>
@@ -104,7 +104,7 @@ $teachers = dgr_get_users(true);
 <div id="nav">
 
 <?php if ( $user->get_level() == 0 ) { ?>
-<span class="menuitem left doubleline"><?php echo gettext('Class:'); ?></span>
+<span class="menuitem left doubleline"><?php echo gettext('Class'); ?>:</span>
 
 <span class="menuitem left doubleline">
 	<select id="selclass" name="selclass" onchange="change_csubjects(true)">
@@ -123,7 +123,7 @@ $teachers = dgr_get_users(true);
 	<?php } ?>
 	</select>
 </span>
-<span class="menuitem right doubleline"><?php echo gettext('Semester:'); ?></span>
+<span class="menuitem right doubleline"><?php echo gettext('Semester'); ?>:</span>
 
 </div>
 
@@ -171,7 +171,7 @@ foreach ( $csubjects as $sub ) {
 
 <table style="padding-top:64px" cellpadding="8" width="50%" class="centered">
 	<tr>
-		<td><?php echo gettext('Name:'); ?></td>
+		<td><?php echo gettext('Subject name'); ?>:</td>
 		<td>
 		<select id="subsel" disabled="disabled">
 		<?php foreach ( $subjects as $sub ) { ?>
@@ -181,7 +181,7 @@ foreach ( $csubjects as $sub ) {
 		</td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Teacher:'); ?></td>
+		<td><?php echo gettext('Teacher'); ?>:</td>
 		<td>
 		<select id="teachsel" disabled="disabled">
 		<?php foreach ( $teachers as $t ) { ?>
@@ -191,7 +191,7 @@ foreach ( $csubjects as $sub ) {
 		</td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Block teacher:'); ?></td>
+		<td><?php echo gettext('Block teacher'); ?>:</td>
 		<td>
 		<input id="blockyes" type="radio" name="block" checked="checked" value="yes" disabled="disabled" />
 		<span><?php echo gettext('yes'); ?></span>
@@ -200,7 +200,7 @@ foreach ( $csubjects as $sub ) {
 		</td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Descriptive grade:'); ?></td>
+		<td><?php echo gettext('Descriptive grade'); ?>:</td>
 		<td>
 		<input id="descyes" type="radio" name="desc" value="yes" disabled="disabled" />
 		<span><?php echo gettext('yes'); ?></span>
@@ -211,10 +211,10 @@ foreach ( $csubjects as $sub ) {
 	<tr><td>&nbsp;</td></tr>
 	<tr>
 		<td style="text-align:center">
-			<input type="button" id="addbutton" value="Save" disabled="disabled" onclick="save_csubject()" />
+			<input type="button" id="addbutton" value="<?php echo gettext('Save'); ?>" disabled="disabled" onclick="save_csubject()" />
 		</td>
 		<td style="text-align:center">
-			<input type="button" id="delbutton" value="Delete" disabled="disabled" onclick="delete_csubject()" />
+			<input type="button" id="delbutton" value="<?php echo gettext('Delete'); ?>" disabled="disabled" onclick="delete_csubject()" />
 		</td>
 	</tr>
 </table>

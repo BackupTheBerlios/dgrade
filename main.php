@@ -78,7 +78,7 @@ if ( $error )
 <div id="topmenu">
 
 <div class="left">
-<span><?php echo gettext('Logged in as:') . ' ' . $user->get_name() . ' ' . $user->get_surname(); ?></span>
+<span><?php echo gettext('Logged in as') . ': ' . $user->get_name() . ' ' . $user->get_surname(); ?></span>
 <br />
 <span><a href="index.php?logout=1"><?php echo gettext('Logout'); ?></a></span>
 </div>
@@ -100,7 +100,7 @@ if ( $error )
 <!-- menu -->
 <div id="nav">
 
-<span class="menuitem left doubleline"><?php echo gettext('View:'); ?></span>
+<span class="menuitem left doubleline"><?php echo gettext('View'); ?>:</span>
 <div class="menuitem left" style="display:inline-block">
 	<span>
 		<input id="view1" type="radio" name="view" value="students" checked="checked" onclick="set_view()" />
@@ -136,7 +136,7 @@ if ( $error )
 	<?php } ?>
 	</select>
 </span>
-<span class="menuitem right doubleline"><?php echo gettext('Class:'); ?></span>
+<span class="menuitem right doubleline"><?php echo gettext('Class'); ?>:</span>
 
 <span class="menuitem right doubleline">
 	<select id="selsemester" name="selsemester" onchange="change_semester()">
@@ -145,7 +145,7 @@ if ( $error )
 	<?php } ?>
 	</select>
 </span>
-<span class="menuitem right doubleline"><?php echo gettext('Semester:'); ?></span>
+<span class="menuitem right doubleline"><?php echo gettext('Semester'); ?>:</span>
 
 </div>
 

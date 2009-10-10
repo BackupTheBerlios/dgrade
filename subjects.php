@@ -62,7 +62,7 @@ $subjects = dgr_get_subjects();
 <div id="topmenu">
 
 <div class="left">
-<span><?php echo gettext('Logged in as:') . ' ' . $user->get_name() . ' ' . $user->get_surname(); ?></span>
+<span><?php echo gettext('Logged in as') . ': ' . $user->get_name() . ' ' . $user->get_surname(); ?></span>
 <br />
 <span><a href="index.php?logout=1"><?php echo gettext('Logout'); ?></a></span>
 </div>
@@ -83,7 +83,7 @@ $subjects = dgr_get_subjects();
 <!-- menu -->
 <div id="nav">
 
-<span class="menuitem left doubleline"><?php echo gettext('Semester:'); ?></span>
+<span class="menuitem left doubleline"><?php echo gettext('Semester'); ?>:</span>
 
 <span class="menuitem left doubleline">
 	<select id="selsemester" name="selclass" onchange="change_semester(this.options[this.selectedIndex].value)">
@@ -99,27 +99,29 @@ $subjects = dgr_get_subjects();
 	<a style="font-size:10pt" href="#" onclick="delete_semester()"><?php echo gettext('delete'); ?></a>
 </span>
 
-<!-- reverse order -->
 
-<span class="menuitem right doubleline">
-	<a href="#" onclick="save_semester()"><?php echo gettext('save'); ?></a>
+<div class="menuitem right">
+
+<span class="doubleline"><?php echo gettext('Start'); ?>:</span>
+<span class="doubleline">
+	<input id="semstart" type="text" maxlength="10" size="10" />
 </span>
 
-<span class="menuitem right doubleline">
+<span class="doubleline"><?php echo gettext('End'); ?>:</span>
+<span class="doubleline">
+	<input id="semend" type="text" maxlength="10" size="10" />
+</span>
+
+<span class="doubleline"><?php echo gettext('Semester name'); ?>:</span>
+<span class="doubleline">
 	<input id="semname" type="text" maxlength="30" name="name" />
 </span>
 
-<span class="menuitem right doubleline"><?php echo gettext('Name:'); ?></span>
-
-<span class="menuitem right doubleline">
-	<input id="semend" type="text" maxlength="10" size="10" />
+<span class="doubleline">
+	<a href="#" onclick="save_semester()"><?php echo gettext('save'); ?></a>
 </span>
-<span class="menuitem right doubleline"><?php echo gettext('End:'); ?></span>
 
-<span class="menuitem right doubleline">
-	<input id="semstart" type="text" maxlength="10" size="10" />
-</span>
-<span class="menuitem right doubleline"><?php echo gettext('Start:'); ?></span>
+</div>
 
 </div>
 
@@ -165,16 +167,16 @@ foreach ( $subjects as $sub ) {
 
 <table style="padding-top:64px" cellpadding="8" width="50%" class="centered">
 	<tr>
-		<td><?php echo gettext('Name:'); ?></td>
+		<td><?php echo gettext('Subject name'); ?>:</td>
 		<td><input type="text" id="sub_name" disabled="disabled" maxlength="30" /></td>
 	</tr>
 	<tr><td>&nbsp;</td></tr>
 	<tr>
 		<td style="text-align:center">
-			<input type="button" id="addbutton" value="Save" disabled="disabled" onclick="save_subject()" />
+			<input type="button" id="addbutton" value="<?php echo gettext('Save'); ?>" disabled="disabled" onclick="save_subject()" />
 		</td>
 		<td style="text-align:center">
-			<input type="button" id="delbutton" value="Delete" disabled="disabled" onclick="delete_subject()" />
+			<input type="button" id="delbutton" value="<?php echo gettext('Delete'); ?>" disabled="disabled" onclick="delete_subject()" />
 		</td>
 	</tr>
 </table>

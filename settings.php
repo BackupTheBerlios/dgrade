@@ -78,7 +78,7 @@ $current_style = $user->get_styleid();
 <div id="topmenu">
 
 <div class="left">
-<span><?php echo gettext('Logged in as:') . ' ' . $user->get_name() . ' ' . $user->get_surname(); ?></span>
+<span><?php echo gettext('Logged in as') . ': ' . $user->get_name() . ' ' . $user->get_surname(); ?></span>
 <br />
 <span><a href="index.php?logout=1"><?php echo gettext('Logout'); ?></a></span>
 </div>
@@ -108,15 +108,15 @@ $current_style = $user->get_styleid();
 </tr>
 <tr><td colspan="3">&nbsp;</td></tr>
 <tr>
-	<td><?php echo gettext('Name:'); ?></td>
+	<td><?php echo gettext('Name'); ?>:</td>
 	<td><input type="text" name="name" maxlength="30" value="<?php echo $user->get_name(); ?>" /></td>
 </tr>
 <tr>
-	<td><?php echo gettext('Surname:'); ?></td>
+	<td><?php echo gettext('Surname'); ?>:</td>
 	<td><input type="text" name="surname" maxlength="30" value="<?php echo $user->get_surname(); ?>" /></td>
 </tr>
 <tr>
-	<td><?php echo gettext('E-mail:'); ?></td>
+	<td><?php echo gettext('E-mail'); ?>:</td>
 	<td>
 	<input id="email" type="text" name="email" maxlength="30" onblur="validate_email()" value="<?php echo $user->get_email(); ?>" />
 	</td>
@@ -126,7 +126,7 @@ $current_style = $user->get_styleid();
 	</td>
 </tr>
 <tr>
-	<td><?php echo gettext('Style:'); ?></td>
+	<td><?php echo gettext('Style'); ?>:</td>
 	<td>
 		<select name="style">
 		<?php foreach ( $styles as $s ) if ( $s['id'] == $current_style ) { ?>
@@ -167,15 +167,15 @@ $current_style = $user->get_styleid();
 	</tr>
 	<tr><td colspan="3">&nbsp;</td></tr>
 	<tr>
-		<td><?php echo gettext('Current password:'); ?></td>
+		<td><?php echo gettext('Current password'); ?>:</td>
 		<td><input type="password" name="curpass" /></td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('New password:'); ?></td>
+		<td><?php echo gettext('New password'); ?>:</td>
 		<td><input id="pass" type="password" name="pass" /></td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Confirm new password:'); ?></td>
+		<td><?php echo gettext('Confirm new password'); ?>:</td>
 		<td><input id="passconf" type="password" name="passconf" onblur="validate_pass()" /></td>
 		<td>
 			<img id="passvalid" class="hiddenimg" src="img/valid.png" alt="valid" />

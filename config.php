@@ -33,7 +33,7 @@ define('DGRADE_DB_USER', 'fae');
 define('DGRADE_DB_PASS', 'dgrade');
 
 /* language */
-define('DGRADE_LANG', 'pl_PL.UTF-8');
+define('DGRADE_LANG', 'pl_PL.utf8');
 
 /* default style */
 define('DGRADE_DEFAULT_STYLE', 'default.css');

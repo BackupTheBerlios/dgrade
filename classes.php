@@ -77,7 +77,7 @@ if ( $user->get_level() == 0 ) {
 <div id="topmenu">
 
 <div class="left">
-<span><?php echo gettext('Logged in as:') . ' ' . $user->get_name() . ' ' . $user->get_surname(); ?></span>
+<span><?php echo gettext('Logged in as') . ': ' . $user->get_name() . ' ' . $user->get_surname(); ?></span>
 <br />
 <span><a href="index.php?logout=1"><?php echo gettext('Logout'); ?></a></span>
 </div>
@@ -104,7 +104,7 @@ if ( $user->get_level() == 0 ) {
 <?php
 if ( $user->get_level() == 0 ) { ?>
 
-<span class="menuitem left doubleline"><?php echo gettext('Class:'); ?></span>
+<span class="menuitem left doubleline"><?php echo gettext('Class'); ?>:</span>
 
 <span class="menuitem left doubleline">
 	<select id="selclass" name="selclass" onchange="change_managed_class(this.options[this.selectedIndex].value)">
@@ -126,37 +126,36 @@ if ( $user->get_level() == 0 ) { ?>
 
 <!-- reverse order -->
 
-<span class="menuitem right doubleline">
-	<a href="#" onclick="save_class()"><?php echo gettext('save'); ?></a>
+<div class="menuitem right">
+
+<span class="doubleline"><?php echo gettext('Class name'); ?>:</span>
+<span class="doubleline">
+	<input id="classname" type="text" maxlength="30" name="name" />
 </span>
 
-<span id="selecttutor" style="display:none"><?php echo $user->get_uid(); ?></span>
+<span class="doubleline"><?php echo gettext('Starting year'); ?>:</span>
+<span class="doubleline">
+	<input id="classyear" type="text" maxlength="4" size="4" name="year" value="<?php echo date('Y'); ?>" />
+</span>
 
 <?php if ( $user->get_level() == 0 ) { ?>
-
-<span class="menuitem right doubleline">
+<span class="doubleline"><?php echo gettext('Tutor'); ?>:</span>
+<span class="doubleline">
 	<select id="classtutor" name="tutor" onchange="change_tutor(this.options[this.selectedIndex].value)">
 	<?php foreach ( $users as $u ) { ?>
 		<option value="<?php echo $u['id']; ?>"><?php echo $u['name']; ?></option>
 	<?php } ?>
 	</select>
 </span>
-
-<span class="menuitem right doubleline"><?php echo gettext('Tutor:'); ?></span>
-
 <?php } ?>
 
-<span class="menuitem right doubleline">
-	<input id="classyear" type="text" maxlength="4" size="4" name="year" value="<?php echo date('Y'); ?>" />
+<span class="doubleline">
+	<a href="#" onclick="save_class()"><?php echo gettext('save'); ?></a>
 </span>
 
-<span class="menuitem right doubleline"><?php echo gettext('Starting year:'); ?></span>
+<span id="selecttutor" style="display:none"><?php echo $user->get_uid(); ?></span>
 
-<span class="menuitem right doubleline">
-	<input id="classname" type="text" maxlength="30" name="name" />
-</span>
-
-<span class="menuitem right doubleline"><?php echo gettext('Name:'); ?></span>
+</div>
 
 </div>
 
@@ -175,15 +174,15 @@ if ( $user->get_level() == 0 ) { ?>
 
 <table cellpadding="8" width="50%" class="centered">
 	<tr>
-		<td><?php echo gettext('Name:'); ?></td>
+		<td><?php echo gettext('Name'); ?>:</td>
 		<td><input type="text" id="student_name" disabled="disabled" maxlength="30" /></td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Surname:'); ?></td>
+		<td><?php echo gettext('Surname'); ?>:</td>
 		<td><input type="text" id="student_surname" disabled="disabled" maxlength="30" /></td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Email:'); ?></td>
+		<td><?php echo gettext('E-mail'); ?>:</td>
 		<td><input type="text" id="email" disabled="disabled" maxlength="30" onblur="validate_email()" /></td>
 		<td>
 			<img id="emailvalid" class="hiddenimg" src="img/valid.png" alt="valid" />
@@ -191,7 +190,7 @@ if ( $user->get_level() == 0 ) { ?>
 		</td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Parent email:'); ?></td>
+		<td><?php echo gettext('Parent e-mail'); ?>:</td>
 		<td><input type="text" id="paremail" disabled="disabled" maxlength="30" onblur="validate_parent_email()" /></td>
 		<td>
 			<img id="paremailvalid" class="hiddenimg" src="img/valid.png" alt="valid" />
@@ -201,10 +200,10 @@ if ( $user->get_level() == 0 ) { ?>
 	<tr><td>&nbsp;</td></tr>
 	<tr>
 		<td style="text-align:center">
-			<input type="button" id="addbutton" value="Save" disabled="disabled" onclick="save_student()" />
+			<input type="button" id="addbutton" value="<?php echo gettext('Save'); ?>" disabled="disabled" onclick="save_student()" />
 		</td>
 		<td style="text-align:center">
-			<input type="button" id="delbutton" value="Delete" disabled="disabled" onclick="delete_student()" />
+			<input type="button" id="delbutton" value="<?php echo gettext('Delete'); ?>" disabled="disabled" onclick="delete_student()" />
 		</td>
 	</tr>
 </table>

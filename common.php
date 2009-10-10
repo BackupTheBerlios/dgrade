@@ -40,7 +40,7 @@ function dgr_redirect( $path )
 
 function dgr_startup()
 {
-	setlocale(LC_MESSAGES, DGRADE_LANG);
+	setlocale(LC_ALL, DGRADE_LANG);
 	bindtextdomain('dgrade', dirname(__FILE__) . '/locale');
 	textdomain('dgrade');
 }
@@ -49,7 +49,7 @@ function dgr_error( $msg )
 {
 	$level = 1;
 	foreach ( $msg as $m ) {
-		echo "<h${level} class=\"header\">" . gettext($m) . "</h${level}>";
+		echo "<h${level} class=\"header\">" . $m . "</h${level}>";
 		if ( $level < 6 )
 			$level++;
 	}

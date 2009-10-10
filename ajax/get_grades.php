@@ -26,6 +26,8 @@ dgr_require('/includes/user.php');
 dgr_require('/includes/class.php');
 dgr_require('/includes/student.php');
 
+dgr_startup();
+
 if ( ! isset($_GET['id']) || ! isset($_GET['semid']) || ! isset($_GET['view']) || ! isset($_GET['qid']) )
 	exit;
 
@@ -86,9 +88,7 @@ foreach ( $grades as $g ) {
 </tr>
 <?php if ( ! empty($g['notes']) ) { ?>
 <tr>
-	<td class="rowheader hidcell" style="text-align:right; border-bottom:1px double lightgrey">
-		<?php echo gettext('Notes:'); ?>
-	</td>
+	<td class="rowheader hidcell" style="text-align:right; border-bottom:1px double lightgrey"><?php echo gettext('Notes'); ?>:</td>
 	<td class="hidcell" style="border-bottom:1px double lightgrey" colspan="<?php echo $longest + 1; ?>">
 		<?php echo $g['notes']; ?>
 	</td>
@@ -98,19 +98,19 @@ foreach ( $grades as $g ) {
 <?php if ( $canwrite ) { ?>
 <tbody class="hidgroup" id="toggle<?php echo $g['id']; ?>">
 <tr class="detailrow">
-	<td class="rowheader hidcell" style="text-align:right"><?php echo gettext('Grades:'); ?></td>
+	<td class="rowheader hidcell" style="text-align:right"><?php echo gettext('Grades'); ?>:</td>
 	<td class="hidcell" style="text-align:left" colspan="<?php echo $longest + 1; ?>">
 	<input style="width:99%" type="text" id="grades<?php echo $g['id']; ?>" value="<?php echo implode(', ', $g['grades']); ?>" />
 	</td>
 </tr>
 <tr class="detailrow">
-	<td class="rowheader hidcell" style="text-align:right"><?php echo gettext('Notes:'); ?></td>
+	<td class="rowheader hidcell" style="text-align:right"><?php echo gettext('Notes'); ?>:</td>
 	<td class="hidcell" style="text-align:left" colspan="<?php echo $longest + 1; ?>">
 	<input style="width:99%" type="text" id="notes<?php echo $g['id']; ?>" value="<?php echo $g['notes']; ?>" />
 	</td>
 </tr>
 <tr class="detailrow">
-	<td class="rowheader hidcell" style="text-align:right"><?php echo gettext('Semestral:'); ?></td>
+	<td class="rowheader hidcell" style="text-align:right"><?php echo gettext('Semestral'); ?>:</td>
 	<td class="hidcell" style="text-align:left" colspan=<?php echo $longest + 1; ?>">
 <?php if ( $g['descriptive_grade'] == 'f' ) { ?>
 	<input style="width:99%" type="text" id="semestral<?php echo $g['id']; ?>" value="<?php echo $g['semestral']; ?>" />
@@ -202,7 +202,7 @@ foreach ( $grades as $g ) {
 <!--
 	<td class="sendhref">
 	<a href="#" onclick="print()">
-		<?php echo gettext('Print'); ?>
+		<?php echo gettext('Export'); ?>
 	</a>
 	</td>
 -->
@@ -264,9 +264,7 @@ foreach ( $data as $d ) {
 </tr>
 <?php if ( ! empty($d['notes']) ) { ?>
 <tr>
-	<td class="rowheader hidcell" style="text-align:right; border-bottom:1px double lightgrey">
-		<?php echo gettext('Notes:'); ?>
-	</td>
+	<td class="rowheader hidcell" style="text-align:right; border-bottom:1px double lightgrey"><?php echo gettext('Notes'); ?>:</td>
 	<td class="hidcell" style="border-bottom:1px double lightgrey" colspan="<?php echo $longest + 1; ?>">
 		<?php echo $d['notes']; ?>
 	</td>
@@ -276,19 +274,19 @@ foreach ( $data as $d ) {
 <?php if ( $canwrite ) { ?>
 <tbody class="hidgroup" id="toggle<?php echo $d['id']; ?>">
 <tr class="detailrow">
-	<td class="rowheader hidcell" style="text-align:right"><?php echo gettext('Grades:'); ?></td>
+	<td class="rowheader hidcell" style="text-align:right"><?php echo gettext('Grades'); ?>:</td>
 	<td class="hidcell" style="text-align:left" colspan="<?php echo $longest + 1; ?>">
 	<input style="width:99%" type="text" id="grades<?php echo $d['id']; ?>" value="<?php echo implode(', ', $d['grades']); ?>" />
 	</td>
 </tr>
 <tr class="detailrow">
-	<td class="rowheader hidcell" style="text-align:right"><?php echo gettext('Notes:'); ?></td>
+	<td class="rowheader hidcell" style="text-align:right"><?php echo gettext('Notes'); ?>:</td>
 	<td class="hidcell" style="text-align:left" colspan="<?php echo $longest + 1; ?>">
 	<input style="width:99%" type="text" id="notes<?php echo $d['id']; ?>" value="<?php echo $d['notes']; ?>" />
 	</td>
 </tr>
 <tr class="detailrow">
-	<td class="rowheader hidcell" style="text-align:right"><?php echo gettext('Semestral:'); ?></td>
+	<td class="rowheader hidcell" style="text-align:right"><?php echo gettext('Semestral'); ?>:</td>
 	<td class="hidcell" style="text-align:left" colspan=<?php echo $longest + 1; ?>">
 <?php if ( $d['descriptive_grade'] == 'f' ) { ?>
 	<input style="width:99%" type="text" id="semestral<?php echo $d['id']; ?>" value="<?php echo $d['semestral']; ?>" />

@@ -24,6 +24,7 @@ require_once dirname(__FILE__) . '/common.php';
 
 dgr_require('/includes/user.php');
 
+dgr_startup();
 
 $bad_login = false;
 $errmsg = '';
@@ -69,7 +70,7 @@ if ( isset($_POST['dgrade_login']) ) {
 <h1 class="header"><span class="rounded">DGrade</span></h1>
 
 <?php if ( $bad_login ) { ?>
-<h3 class="header error"><?php echo gettext($errmsg); ?></h3>
+<h3 class="header error"><?php echo $errmsg; ?></h3>
 <?php } ?>
 
 <form action="index.php" method="post">
@@ -78,11 +79,11 @@ if ( isset($_POST['dgrade_login']) ) {
 
 <table cellpadding="8" width="40%" class="centered tableform">
 	<tr>
-		<td><?php echo gettext('Username:'); ?></td>
+		<td><?php echo gettext('Username'); ?>:</td>
 		<td><input type="text" name="user" /></td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Password:'); ?></td>
+		<td><?php echo gettext('Password'); ?>:</td>
 		<td><input type="password" name="pass" /></td>
 	</tr>
 	<tr><td colspan="2" class="bottombordered">&nbsp;</td></tr>

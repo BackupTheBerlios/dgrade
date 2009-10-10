@@ -1,3 +1,4 @@
 syntax: glob
 doc/src/*
 img/src/*
+locale/src/*

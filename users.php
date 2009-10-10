@@ -63,7 +63,7 @@ $users = dgr_get_users();
 <div id="topmenu">
 
 <div class="left">
-<span><?php echo gettext('Logged in as:') . ' ' . $user->get_name() . ' ' . $user->get_surname(); ?></span>
+<span><?php echo gettext('Logged in as') . ': ' . $user->get_name() . ' ' . $user->get_surname(); ?></span>
 <br />
 <span><a href="index.php?logout=1"><?php echo gettext('Logout'); ?></a></span>
 </div>
@@ -131,23 +131,23 @@ foreach ( $users as $u ) {
 
 <table style="padding-top:64px" cellpadding="8" width="50%" class="centered">
 	<tr>
-		<td><?php echo gettext('Login:'); ?></td>
+		<td><?php echo gettext('Login'); ?>:</td>
 		<td><input type="text" id="login" disabled="disabled" maxlength="30" /></td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Password:'); ?></td>
+		<td><?php echo gettext('Password'); ?>:</td>
 		<td><input type="password" id="pass" disabled="disabled" /></td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Name:'); ?></td>
+		<td><?php echo gettext('Name'); ?>:</td>
 		<td><input type="text" id="user_name" disabled="disabled" maxlength="30" /></td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Surname:'); ?></td>
+		<td><?php echo gettext('Surname'); ?>:</td>
 		<td><input type="text" id="user_surname" disabled="disabled" maxlength="30" /></td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Email:'); ?></td>
+		<td><?php echo gettext('E-mail'); ?>:</td>
 		<td><input type="text" id="email" disabled="disabled" maxlength="30" onblur="validate_email()" /></td>
 		<td>
 			<img id="emailvalid" class="hiddenimg" src="img/valid.png" alt="valid" />
@@ -155,7 +155,7 @@ foreach ( $users as $u ) {
 		</td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Level:'); ?></td>
+		<td><?php echo gettext('Level'); ?>:</td>
 		<td>
 		<select id="levelsel" disabled="disabled">
 			<option value="0"><?php echo gettext('Administrator'); ?></option>
@@ -167,10 +167,10 @@ foreach ( $users as $u ) {
 	<tr><td>&nbsp;</td></tr>
 	<tr>
 		<td style="text-align:center">
-			<input type="button" id="addbutton" value="Save" disabled="disabled" onclick="save_user()" />
+			<input type="button" id="addbutton" value="<?php echo gettext('Save'); ?>" disabled="disabled" onclick="save_user()" />
 		</td>
 		<td style="text-align:center">
-			<input type="button" id="delbutton" value="Delete" disabled="disabled" onclick="delete_user()" />
+			<input type="button" id="delbutton" value="<?php echo gettext('Delete'); ?>" disabled="disabled" onclick="delete_user()" />
 		</td>
 	</tr>
 </table>

@@ -22,6 +22,8 @@
 
 require_once dirname(__FILE__) . '/../common.php';
 
+dgr_startup();
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -48,7 +50,7 @@ require_once dirname(__FILE__) . '/../common.php';
 
 <table cellpadding="8" width="60%" class="centered tableform">
 	<tr>
-		<td><?php echo gettext('Administrator username:'); ?></td>
+		<td><?php echo gettext('Administrator username'); ?>:</td>
 		<td><input id="user" name="user" type="text" value="admin" maxlength="30" onblur="validate_user()" /></td>
 		<td>
 			<img id="uservalid" src="../img/valid.png" alt="valid" />
@@ -56,7 +58,7 @@ require_once dirname(__FILE__) . '/../common.php';
 		</td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('E-mail:'); ?></td>
+		<td><?php echo gettext('E-mail'); ?>:</td>
 		<td><input id="email" name="email" type="text" maxlength="30" onblur="validate_email()" /></td>
 		<td>
 			<img id="emailvalid" class="hiddenimg" src="../img/valid.png" alt="valid" />
@@ -64,11 +66,11 @@ require_once dirname(__FILE__) . '/../common.php';
 		</td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Password:'); ?></td>
+		<td><?php echo gettext('Password'); ?>:</td>
 		<td><input id="pass" name="pass" type="password" /></td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Confirm password:'); ?></td>
+		<td><?php echo gettext('Confirm password'); ?>:</td>
 		<td><input id="passconf" name="passconf" type="password" onblur="validate_pass()" /></td>
 		<td>
 			<img id="passvalid" class="hiddenimg" src="../img/valid.png" alt="valid" />
@@ -76,17 +78,17 @@ require_once dirname(__FILE__) . '/../common.php';
 		</td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Clear database:'); ?></td>
+		<td><?php echo gettext('Clear database'); ?>:</td>
 		<td><input name="cleardb" type="checkbox" value="yes" /></td>
 	</tr>
 	<tr><td colspan="3" class="bottombordered">&nbsp;</td></tr>
 	<tr><td colspan="3">&nbsp;</td></tr>
 	<tr>
-		<td><?php echo gettext('Name:'); ?></td>
+		<td><?php echo gettext('Name'); ?>:</td>
 		<td><input name="name" type="text" maxlength="30" /></td>
 	</tr>
 	<tr>
-		<td><?php echo gettext('Surname:'); ?></td>
+		<td><?php echo gettext('Surname'); ?>:</td>
 		<td><input name="surname" type="text" maxlength="30" /></td>
 	</tr>
 	<tr><td colspan="3" class="bottombordered">&nbsp;</td></tr>
