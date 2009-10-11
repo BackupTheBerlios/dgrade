@@ -124,13 +124,11 @@ if ( $user->get_level() == 0 ) { ?>
 
 <span id="selclassid" style="display:none"><?php echo $classid; ?></span>
 
-<!-- reverse order -->
-
 <div class="menuitem right">
 
 <span class="doubleline"><?php echo gettext('Class name'); ?>:</span>
 <span class="doubleline">
-	<input id="classname" type="text" maxlength="30" name="name" />
+	<input id="classname" type="text" maxlength="30" size="15" name="name" />
 </span>
 
 <span class="doubleline"><?php echo gettext('Starting year'); ?>:</span>
@@ -150,12 +148,12 @@ if ( $user->get_level() == 0 ) { ?>
 <?php } ?>
 
 <span class="doubleline">
-	<a href="#" onclick="save_class()"><?php echo gettext('save'); ?></a>
+	<a style="font-size:10pt" href="#" onclick="save_class()"><?php echo gettext('save'); ?></a>
 </span>
 
-<span id="selecttutor" style="display:none"><?php echo $user->get_uid(); ?></span>
-
 </div>
+
+<span id="selecttutor" style="display:none"><?php echo $user->get_uid(); ?></span>
 
 </div>
 
