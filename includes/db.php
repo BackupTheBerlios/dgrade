@@ -517,6 +517,14 @@ class DGradeDB
 			$rt = $this->execute('ins_att', $row);
 			$ret = $ret && $rt ? true : false;
 		}
+		$r = $this->prepare('ins_grade', "INSERT INTO dgr_grade VALUES ( nextval('dgr_grade_id_seq'), '', '', '', {$id}, $1 )");
+		$ret = $ret && $r ? true : false;
+		$r = $this->query("SELECT id FROM dgr_subject_semester WHERE class_id={$classid}");
+		$ret = $ret && $r ? true : false;
+		while ( $row = pg_fetch_row($r) ) {
+			$rt = $this->execute('ins_grade', $row);
+			$ret = $ret && $rt ? true : false;
+		}
 		$ret = $ret && $this->query("COMMIT") ? true : false;
 		return $ret;
 	}
