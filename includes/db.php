@@ -61,7 +61,7 @@ class DGradeDB
 		return pg_connection_status($this->conn) == PG_CONNECTION_OK;
 	}
 
-	private function query( $query )
+	public function query( $query ) /* public for do_install.php */
 	{
 		return pg_query($this->conn, $query);
 	}
