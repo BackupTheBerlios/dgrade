@@ -356,6 +356,7 @@ function change_managed_class( classid )
 	if ( classid < 0 )
 		return;
 	with ( document ) {
+		getElementById('selclassid').innerHTML = classid;
 		if ( classid == 0 ) {
 			getElementById('classname').value = '';
 			var d = new Date();
@@ -365,7 +366,6 @@ function change_managed_class( classid )
 			clear_student_form();
 			return;
 		}
-		var classidspan = getElementById('selclassid');
 		var selclass = getElementById('selclass');
 		var name = selclass.options[selclass.selectedIndex].text;
 		getElementById('classname').value = name;
@@ -387,14 +387,14 @@ function change_managed_class( classid )
 	var url = 'ajax/get_class_info.php?id=' + classid + '&qid=' + Math.random();
 	xmlhttp.open('GET', url, true);
 	xmlhttp.send(null);
-	classidspan.innerHTML = classid;
 	change_class();
 }
 
 function save_class()
 {
 	with ( document ) {
-		var classid = getElementById('selclassid').innerHTML;
+		var selclassid = getElementById('selclassid');
+		var classid = selclassid.innerHTML;
 		var name = getElementById('classname').value;
 		var startyear = getElementById('classyear').value;
 		var tutorid = getElementById('selecttutor').innerHTML;
@@ -406,15 +406,19 @@ function save_class()
 			if ( json.added == 1 ) {
 				var selclass = document.getElementById('selclass');
 				selclass.innerHTML = htmlspecialchars_decode(json.selhtml);
+				selclass.selectedIndex = selclass.length - 1;
+				selclassid.innerHTML = selclass.options[selclass.selectedIndex].value;
+				change_class();
+			}
+			else
 				for (i=0; i<selclass.length; i++)
 					if ( selclass.options[i].value == classid ) {
 						selclass.selectedIndex = i;
 						break;
 					}
-			}
 		}
 	};
-	var url = 'ajax/change_class.php';
+	var url = 'ajax/modify_class.php';
 	var params = 'id=' + classid + '&name=' + encodeURIComponent(name) + '&startyear=' + encodeURIComponent(startyear) + '&tutorid=' + tutorid + '&qid=' + Math.random();
 	xmlhttp.open('POST', url, true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -433,6 +437,7 @@ function delete_class()
 	xmlhttp.onreadystatechange = function() {
 		if ( xmlhttp.readyState == 4 ) {
 			selclass.innerHTML = xmlhttp.responseText;
+			selclass.selectedIndex = 0;
 			change_managed_class(0);
 		}
 	};
@@ -493,7 +498,7 @@ function save_user()
 		}
 	};
 	var url = 'ajax/modify_user.php';
-	var params = 'id=' + parseInt(id) + '&l=' + encodeURIComponent(login) + '&p=' + encodeURIComponent(pass) + '&n=' + encodeURIComponent(name) + '&s=' + encodeURIComponent(surname) + '&e=' + encodeURIComponent(email) + '&lvl=' + parseInt(level) + '&qid=' + Math.random();
+	var params = 'id=' + parseInt(id) + '&login=' + encodeURIComponent(login) + '&pass=' + encodeURIComponent(pass) + '&name=' + encodeURIComponent(name) + '&surname=' + encodeURIComponent(surname) + '&email=' + encodeURIComponent(email) + '&lvl=' + parseInt(level) + '&qid=' + Math.random();
 	xmlhttp.open('POST', url, true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xmlhttp.setRequestHeader("Content-length", params.length);
