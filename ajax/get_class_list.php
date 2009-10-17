@@ -41,7 +41,7 @@ try {
 $ht = '';
 
 if ( $_GET['view'] == 1 ) {
-	$ht .= '<span id="chooseheader">' . gettext('Students') . '</span><span id="choosesel" style="display:none">1</span><span id="chooseid" style="display:none">0</span><table cellpadding="0" cellspacing="0" width="100%">';
+	$ht .= '<span id="chooseheader">' . gettext('Students') . '</span><span id="choosesel" style="display:none">1</span><span id="chooseid" style="display:none">0</span><div id="chooselist"><table cellpadding="0" cellspacing="0" width="100%">';
 
 	$i = 0;
 	foreach ( $class->students as $st ) {
@@ -54,10 +54,10 @@ if ( $_GET['view'] == 1 ) {
 	. '</tr>';
 
 	}
-	$ht .= '</table>';
+	$ht .= '</table></div>';
 
 } else if ( $_GET['view'] == 2 ) {
-	$ht .= '<span id="chooseheader">' . gettext('Subjects') . '</span><span id="choosesel"  style="display:none">1</span><span id="chooseid" style="display:none">0</span><table cellpadding="0" cellspacing="0" width="100%">';
+	$ht .= '<span id="chooseheader">' . gettext('Subjects') . '</span><span id="choosesel"  style="display:none">1</span><span id="chooseid" style="display:none">0</span><div id="chooselist"><table cellpadding="0" cellspacing="0" width="100%">';
 
 	$i = 0;
 	$accepted = ($user->get_level() == 0) || ($class->get_tutorid() == $user->get_uid());
@@ -68,7 +68,7 @@ if ( $_GET['view'] == 1 ) {
 		$ht .= '<tr id="' . $tr . '" onmouseover="make_pointer(this)" onclick="change_selection(' . $i . ',' . $sub['id'] . ')">'
 		. '<td class="choosetd" style="text-align:center">' . $sub['name'] . '</td></tr>';
 	}
-	$ht .= '</table>';
+	$ht .= '</table></div>';
 } else
 	exit;
 

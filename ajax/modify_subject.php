@@ -55,6 +55,7 @@ $subjects = dgr_get_subjects();
 <span id="choosesel" style="display:none">1</span>
 <span id="chooseid" style="display:none">0</span>
 
+<div id="chooselist">
 <table cellpadding="0" cellspacing="0" width="100%">
 
 <?php
@@ -79,3 +80,4 @@ foreach ( $subjects as $sub ) {
 </tr>
 
 </table>
+</div>

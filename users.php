@@ -97,6 +97,7 @@ $users = dgr_get_users();
 <span id="choosesel" style="display:none">1</span>
 <span id="chooseid" style="display:none">0</span>
 
+<div id="chooselist">
 <table cellpadding="0" cellspacing="0" width="100%">
 
 <?php
@@ -122,6 +123,7 @@ foreach ( $users as $u ) {
 </tr>
 
 </table>
+</div>
 
 </div>
 

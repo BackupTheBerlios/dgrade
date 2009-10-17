@@ -21,9 +21,9 @@
 
 function set_page()
 {
+	change_class();
 	set_height();
 	set_visibility();
-	change_class();
 }
 
 function set_visibility()
