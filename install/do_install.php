@@ -23,7 +23,7 @@
 require_once dirname(__FILE__) . '/../common.php';
 
 if ( ! isset($_POST['dgrade_install']) )
-	dgr_redirect('install.php');
+	dgr_redirect('index.php');
 
 dgr_startup();
 
