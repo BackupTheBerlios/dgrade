@@ -138,8 +138,19 @@ $teachers = dgr_get_users(true);
 <span id="chooseid" style="display:none">0</span>
 
 <div id="chooselist">
+
+<?php if ( $lc ) { ?>
+
 <table cellpadding="0" cellspacing="0" width="100%">
-<?php if ( $lc ) {
+
+<tr id="choose0" onmouseover="make_pointer(this)" onclick="change_csubject_selection(0, 0)">
+	<td class="choosetd" style="text-align:center" colspan="2"><?php echo gettext('new subject'); ?></td>
+</tr>
+<tr>
+	<td class="choosetd" colspan="2">&nbsp;</td>
+</tr>
+
+<?php
 $i = 0;
 $csubjects = $class->get_subjects($semid);
 foreach ( $csubjects as $sub ) {
@@ -154,14 +165,6 @@ foreach ( $csubjects as $sub ) {
 <?php } ?>
 
 <?php } ?>
-
-<tr>
-	<td class="choosetd" colspan="2">&nbsp;</td>
-</tr>
-
-<tr id="<?php echo 'choose' .  ++$i; ?>" onmouseover="make_pointer(this)" onclick="change_csubject_selection(<?php echo $i; ?>, 0)">
-	<td class="choosetd" style="text-align:center" colspan="2"><?php echo gettext('new subject'); ?></td>
-</tr>
 
 </table>
 </div>

@@ -49,6 +49,13 @@ if ( $user->get_level() != 0 && $user->get_uid() != $class->get_tutorid() )
 <div id="chooselist">
 <table cellpadding="0" cellspacing="0" width="100%">
 
+<tr id="choose0" onmouseover="make_pointer(this)" onclick="change_csubject_selection(0, 0)">
+	<td class="choosetd" style="text-align:center" colspan="2"><?php echo gettext('new subject'); ?></td>
+</tr>
+<tr>
+	<td class="choosetd" colspan="2">&nbsp;</td>
+</tr>
+
 <?php
 $i = 0;
 $csubjects = $class->get_subjects($_GET['semid']);
@@ -62,14 +69,6 @@ foreach ( $csubjects as $sub ) {
 </tr>
 
 <?php } ?>
-
-<tr>
-	<td class="choosetd" colspan="2">&nbsp;</td>
-</tr>
-
-<tr id="<?php echo 'choose' .  ++$i; ?>" onmouseover="make_pointer(this)" onclick="change_csubject_selection(<?php echo $i; ?>, 0)">
-	<td class="choosetd" style="text-align:center" colspan="2"><?php echo gettext('new subject'); ?></td>
-</tr>
 
 </table>
 </div>
