@@ -25,6 +25,9 @@ require_once dirname(__FILE__) . '/../common.php';
 dgr_require('/includes/user.php');
 dgr_require('/includes/student.php');
 
+
+dgr_startup();
+
 if ( ! isset($_GET['id']) || ! isset($_GET['qid']) )
 	exit;
 
