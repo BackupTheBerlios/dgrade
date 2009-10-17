@@ -1,0 +1,356 @@
+# Polish translations for dgrade package
+# Polskie tłumaczenia dla pakietu dgrade.
+# Copyright (C) 2009 fae
+# This file is distributed under the same license as the fae package.
+#  <fae@onet.eu>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-10-11 01:11+0200\n"
+"PO-Revision-Date: 2009-10-11 00:34+0200\n"
+"Last-Translator:  <fae@onet.eu>\n"
+"Language-Team: Polish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#: class_subjects.php:70 main.php:112 main.php:123 subjects.php:50
+msgid "subjects"
+msgstr "przemioty"
+
+#: class_subjects.php:85 classes.php:80 main.php:81 settings.php:81
+#: subjects.php:65 users.php:66
+msgid "Logged in as"
+msgstr "Zalogowany jako"
+
+#: class_subjects.php:87 classes.php:82 main.php:83 settings.php:83
+#: subjects.php:67 users.php:68
+msgid "Logout"
+msgstr "Wyloguj"
+
+#: class_subjects.php:92 classes.php:87 settings.php:88 subjects.php:72
+#: users.php:74
+msgid "Main page"
+msgstr "Strona główna"
+
+#: class_subjects.php:94 main.php:89 settings.php:90 subjects.php:74
+#: users.php:75
+msgid "Classes"
+msgstr "Klasy"
+
+#: class_subjects.php:95 classes.php:90 main.php:90 settings.php:91
+#: users.php:76
+msgid "Subjects & semesters"
+msgstr "Przedmioty i semestry"
+
+#: class_subjects.php:96 classes.php:92 main.php:92 settings.php:93
+#: subjects.php:76 users.php:96 ajax/delete_user.php:49
+#: ajax/modify_user.php:57
+msgid "Users"
+msgstr "Użytkownicy"
+
+#: class_subjects.php:98 classes.php:95 main.php:94 subjects.php:78
+#: users.php:79
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: class_subjects.php:107 classes.php:107 main.php:139
+msgid "Class"
+msgstr "Klasa"
+
+#: class_subjects.php:126 main.php:148 subjects.php:86
+msgid "Semester"
+msgstr "Semestr"
+
+#: class_subjects.php:136 subjects.php:134 ajax/delete_subject.php:49
+#: ajax/get_class_list.php:60 ajax/get_class_subjects.php:45
+#: ajax/get_grades.php:63 ajax/modify_subject.php:54
+msgid "Subjects"
+msgstr "Przedmioty"
+
+#: class_subjects.php:162 subjects.php:158 ajax/delete_subject.php:73
+#: ajax/get_class_subjects.php:70 ajax/modify_subject.php:78
+msgid "new subject"
+msgstr "nowy przedmiot"
+
+#: class_subjects.php:174 subjects.php:170
+msgid "Subject name"
+msgstr "Nazwa przedmiotu"
+
+#: class_subjects.php:184 users.php:163
+msgid "Teacher"
+msgstr "Nauczyciel"
+
+#: class_subjects.php:194
+msgid "Block teacher"
+msgstr "Blokuj nauczyciela"
+
+#: class_subjects.php:197 class_subjects.php:206
+msgid "yes"
+msgstr "tak"
+
+#: class_subjects.php:199 class_subjects.php:208
+msgid "no"
+msgstr "nie"
+
+#: class_subjects.php:203
+msgid "Descriptive grade"
+msgstr "Ocena opisowa"
+
+#: class_subjects.php:214 ajax/get_grades.php:125 ajax/get_grades.php:181
+#: ajax/get_grades.php:301
+msgid "Save"
+msgstr "Zapisz"
+
+#: class_subjects.php:217
+msgid "Delete"
+msgstr "Usuń"
+
+#: classes.php:64
+msgid "classes"
+msgstr "klasy"
+
+#: classes.php:91 main.php:91 settings.php:92 subjects.php:75 users.php:77
+msgid "Class subjects"
+msgstr "Przedmioty klasy"
+
+#: classes.php:112 ajax/delete_class.php:49 ajax/modify_class.php:58
+msgid "new class"
+msgstr "nowa klasa"
+
+#: classes.php:120 subjects.php:99
+msgid "delete"
+msgstr "usuń"
+
+#: classes.php:131
+msgid "Class name"
+msgstr "Nazwa klasy"
+
+#: classes.php:136
+msgid "Starting year"
+msgstr "Rok rozpoczęcia"
+
+#: classes.php:142
+msgid "Tutor"
+msgstr "Wychowawca"
+
+#: classes.php:153 subjects.php:121
+msgid "save"
+msgstr "zapisz"
+
+#: classes.php:177 settings.php:111 users.php:142 install/index.php:87
+msgid "Name"
+msgstr "Imię"
+
+#: classes.php:181 settings.php:115 users.php:146 install/index.php:91
+msgid "Surname"
+msgstr "Nazwisko"
+
+#: classes.php:185 settings.php:119 users.php:150 install/index.php:61
+msgid "E-mail"
+msgstr "E-mail"
+
+#: classes.php:193
+msgid "Parent e-mail"
+msgstr "E-mail rodzica"
+
+#: index.php:61
+msgid "starting page"
+msgstr "strona startowa"
+
+#: index.php:82
+msgid "Username"
+msgstr "Użytkownik"
+
+#: index.php:86 users.php:138 install/index.php:69
+msgid "Password"
+msgstr "Hasło"
+
+#: index.php:92 settings.php:147 settings.php:188 install/index.php:98
+msgid "Submit"
+msgstr "Wyślij"
+
+#: main.php:59
+msgid "main page"
+msgstr "strona główna"
+
+#: main.php:73
+msgid "Error"
+msgstr "Błąd"
+
+#: main.php:103
+msgid "View"
+msgstr "Widok"
+
+#: main.php:107
+msgid "students"
+msgstr "uczniowie"
+
+#: main.php:127
+msgid "manage"
+msgstr "zarządzaj"
+
+#: settings.php:67
+msgid "settings"
+msgstr "ustawienia"
+
+#: settings.php:106
+msgid "User data"
+msgstr "Dane użytkownika"
+
+#: settings.php:129
+msgid "Style"
+msgstr "Styl"
+
+#: settings.php:165
+msgid "Change password"
+msgstr "Zmień hasło"
+
+#: settings.php:170
+msgid "Current password"
+msgstr "Obecne hasło"
+
+#: settings.php:174
+msgid "New password"
+msgstr "Nowe hasło"
+
+#: settings.php:178
+msgid "Confirm new password"
+msgstr "Powtórz nowe hasło"
+
+#: subjects.php:91 ajax/delete_semester.php:50 ajax/modify_semester.php:55
+msgid "new semester"
+msgstr "nowy semestr"
+
+#: subjects.php:105
+msgid "Start"
+msgstr "Początek"
+
+#: subjects.php:110
+msgid "End"
+msgstr "Koniec"
+
+#: subjects.php:115
+msgid "Semester name"
+msgstr "Nazwa semestru"
+
+#: users.php:50
+msgid "users"
+msgstr "użytkownicy"
+
+#: users.php:121 ajax/delete_user.php:74 ajax/modify_user.php:82
+msgid "new user"
+msgstr "nowy użytkownik"
+
+#: users.php:134
+msgid "Login"
+msgstr "Nazwa użytkownika"
+
+#: users.php:158
+msgid "Level"
+msgstr "Poziom"
+
+#: users.php:161
+msgid "Administrator"
+msgstr "Administrator"
+
+#: users.php:162
+msgid "Viewer"
+msgstr "Dyrektor"
+
+#: ajax/get_class_list.php:44 ajax/get_grades.php:241
+#: ajax/get_managed_class_list.php:43
+msgid "Students"
+msgstr "Uczniowie"
+
+#: ajax/get_grades.php:64 ajax/get_grades.php:101 ajax/get_grades.php:242
+#: ajax/get_grades.php:277
+msgid "Grades"
+msgstr "Oceny"
+
+#: ajax/get_grades.php:65 ajax/get_grades.php:113 ajax/get_grades.php:243
+#: ajax/get_grades.php:289 includes/student.php:92
+msgid "Semestral"
+msgstr "Semestralna"
+
+#: ajax/get_grades.php:91 ajax/get_grades.php:107 ajax/get_grades.php:267
+#: ajax/get_grades.php:283 includes/student.php:93
+msgid "Notes"
+msgstr "Uwagi"
+
+#: ajax/get_grades.php:143
+msgid "Attendance"
+msgstr "Frekwencja"
+
+#: ajax/get_grades.php:146
+msgid "Absent"
+msgstr "Nieusprawiedliwione"
+
+#: ajax/get_grades.php:147
+msgid "Explained"
+msgstr "Usprawiedliwione"
+
+#: ajax/get_grades.php:148
+msgid "Late"
+msgstr "Spóźnienia"
+
+#: ajax/get_grades.php:194
+msgid "Send"
+msgstr "Wyślij"
+
+#: ajax/get_grades.php:199
+msgid "Send to all"
+msgstr "Wyślij do wszystkich"
+
+#: ajax/get_grades.php:205
+msgid "Export"
+msgstr "Eksportuj"
+
+#: ajax/get_managed_class_list.php:69 ajax/get_managed_student.php:64
+#: ajax/get_managed_subject.php:55
+msgid "new student"
+msgstr "nowy uczeń"
+
+#: ajax/sendone.php:49
+msgid "Message sent successfully"
+msgstr "Wiadomość wysłana"
+
+#: ajax/sendone.php:51
+msgid "Message not sent :("
+msgstr "Nie udało się wysłać wiadomości"
+
+#: includes/user.php:49
+msgid "Bad username or password"
+msgstr "Błędna nazwa użytkownika lub hasło"
+
+#: install/do_install.php:37
+msgid "DGrade - Error"
+msgstr "DGrade - błąd"
+
+#: install/do_install.php:96
+msgid "Installation successful"
+msgstr "Instalacja ukończona pomyślnie"
+
+#: install/do_install.php:97
+msgid "Log in"
+msgstr "Zaloguj się"
+
+#: install/index.php:34 install/index.php:45
+msgid "DGrade - installation"
+msgstr "DGrade - instalacja"
+
+#: install/index.php:53
+msgid "Administrator username"
+msgstr "Nazwa administratora"
+
+#: install/index.php:73
+msgid "Confirm password"
+msgstr "Powtórz hasło"
+
+#: install/index.php:81
+msgid "Clear database"
+msgstr "Wyczyść bazę danych"
