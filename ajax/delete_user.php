@@ -50,7 +50,15 @@ $users = dgr_get_users();
 <span id="choosesel" style="display:none">1</span>
 <span id="chooseid" style="display:none">0</span>
 
+<div id="chooselist">
 <table cellpadding="0" cellspacing="0" width="100%">
+
+<tr id="choose0" onmouseover="make_pointer(this)" onclick="change_user_selection(0, 0)">
+	<td class="choosetd" style="text-align:center" colspan="3"><?php echo gettext('new user'); ?></td>
+</tr>
+<tr>
+	<td class="choosetd" colspan="3">&nbsp;</td>
+</tr>
 
 <?php
 $i = 0;
@@ -66,12 +74,5 @@ foreach ( $users as $u ) {
 
 <?php } ?>
 
-<tr>
-	<td class="choosetd" colspan="3">&nbsp;</td>
-</tr>
-
-<tr id="<?php echo 'choose' .  ++$i; ?>" onmouseover="make_pointer(this)" onclick="change_user_selection(<?php echo $i; ?>, 0)">
-	<td class="choosetd" style="text-align:center" colspan="3"><?php echo gettext('new user'); ?></td>
-</tr>
-
 </table>
+</div>

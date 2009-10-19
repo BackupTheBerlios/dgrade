@@ -187,7 +187,7 @@ foreach ( $grades as $g ) {
 
 <br style="line-height:400%" />
 
-<table style="width:100%; table-layout:fixed" cellpadding="2" cellspacing="0" class="centered">
+<table style="width:100%; table-layout:fixed; padding-bottom:1em" cellpadding="2" cellspacing="0" class="centered">
 <tr>
 	<td class="sendhref">
 	<a href="#" onclick="sendone(<?php echo $student->get_id(); ?>, <?php echo $_GET['semid']; ?>)">
