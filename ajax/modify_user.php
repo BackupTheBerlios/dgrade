@@ -1,6 +1,6 @@
 <?php
 /*
- *      save_user_info.php
+ *      modify_user.php
  *
  *      Copyright 2009 fae <fae@onet.eu>
  *
@@ -47,7 +47,7 @@ $dblink = DGradeDB::instance();
 if ( $_POST['id'] == 0 ) {
 	$dblink->add_user($login, $pass, $name, $surname, $email, $_POST['lvl']);
 } else if ( $_POST['id'] > 0 ) {
-	$dblink->change_user($_POST['id'], $pass, $name, $surname, $email, $_POST['lvl']);
+	$dblink->set_user($_POST['id'], $pass, $name, $surname, $email, $_POST['lvl']);
 }
 
 $users = dgr_get_users();
