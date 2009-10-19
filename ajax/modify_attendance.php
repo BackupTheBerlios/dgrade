@@ -1,6 +1,6 @@
 <?php
 /*
- *      save_attendance.php
+ *      modify_attendance.php
  *
  *      Copyright 2009 fae <fae@onet.eu>
  *

@@ -42,12 +42,23 @@ if ( $user->get_level() != 0 && $user->get_uid() != $student->get_tutorid() )
 
 $email = $user->get_email();
 
-if ( empty($email) )
-	die('E-mail not set');
+$err = 0;
+$msg = '';
 
-if ( $student->send($_GET['semid'], $email) )
-	echo gettext('Message sent successfully');
-else
-	echo gettext('Message not sent :(');
+if ( empty($email) ) {
+	$err = 1;
+	$msg = gettext('E-mail not set');
+} else if ( $student->send($_GET['semid'], $email) ) {
+	$err = 0;
+	$msg = gettext('Message sent successfully');
+} else {
+	$err = 1;
+	$msg = gettext('Message not sent :(');
+}
 
 ?>
+
+{
+"status": "<?php echo $err; ?>",
+"msg": "<?php echo $msg; ?>"
+}

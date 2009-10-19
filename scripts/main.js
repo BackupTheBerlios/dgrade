@@ -196,26 +196,31 @@ function save_attendance( id )
 function sendone( id, semid )
 {
 	var msg = document.getElementById('mailmsg');
+	msg.style.color = 'green';
 	msg.innerHTML = '...';
 	var xmlhttp = get_ajax_request();
 	var url = 'ajax/sendone.php?id=' + parseInt(id) + '&semid=' + parseInt(semid) + '&qid=' + Math.random();
 	xmlhttp.open('GET', url, false);
 	xmlhttp.send(null);
-	msg.innerHTML = xmlhttp.responseText;
+	json = eval('(' + xmlhttp.responseText + ')');
+	if ( json.status != 0 )
+		msg.style.color = 'red';
+	msg.innerHTML = json.msg;
 }
 
 function sendall( semid )
 {
-	// TODO: nice info
+	var msg = document.getElementById('mailmsg');
+	msg.style.color = 'green';
+	msg.innerHTML = '...';
 	var sel = document.getElementById('selclass');
 	var classid = sel.options[sel.selectedIndex].value;
 	var xmlhttp = get_ajax_request();
-	xmlhttp.onreadystatechange = function() {
-		if ( xmlhttp.readyState == 4 ) {
-			alert(xmlhttp.responseText);
-		}
-	};
 	var url = 'ajax/sendall.php?id=' + parseInt(classid) + '&semid=' + parseInt(semid) + '&qid=' + Math.random();
-	xmlhttp.open('GET', url, true);
+	xmlhttp.open('GET', url, false);
 	xmlhttp.send(null);
+	json = eval('(' + xmlhttp.responseText + ')');
+	if ( json.status != 0 )
+		msg.style.color = 'red';
+	msg.innerHTML = json.msg;
 }

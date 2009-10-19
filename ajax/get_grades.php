@@ -208,7 +208,7 @@ foreach ( $grades as $g ) {
 -->
 </tr>
 <tr>
-	<td id="mailmsg" class="msgbox green" colspan="2">&nbsp;</td>
+	<td id="mailmsg" class="msgbox" colspan="2">&nbsp;</td>
 </tr>
 </table>
 <?php } else { ?>

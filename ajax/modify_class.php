@@ -1,6 +1,6 @@
 <?php
 /*
- *      change_class.php
+ *      modify_class.php
  *
  *      Copyright 2009 fae <fae@onet.eu>
  *

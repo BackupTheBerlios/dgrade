@@ -1,6 +1,6 @@
 <?php
 /*
- *      save_csubject.php
+ *      modify_csubject.php
  *
  *      Copyright 2009 fae <fae@onet.eu>
  *

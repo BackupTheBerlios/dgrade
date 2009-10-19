@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-11 01:11+0200\n"
+"POT-Creation-Date: 2009-10-19 19:57+0200\n"
 "PO-Revision-Date: 2009-10-11 00:34+0200\n"
 "Last-Translator:  <fae@onet.eu>\n"
 "Language-Team: Polish\n"
@@ -101,12 +101,12 @@ msgstr "nie"
 msgid "Descriptive grade"
 msgstr "Ocena opisowa"
 
-#: class_subjects.php:214 ajax/get_grades.php:125 ajax/get_grades.php:181
-#: ajax/get_grades.php:301
+#: class_subjects.php:214 classes.php:201 subjects.php:176 users.php:170
+#: ajax/get_grades.php:125 ajax/get_grades.php:181 ajax/get_grades.php:301
 msgid "Save"
 msgstr "Zapisz"
 
-#: class_subjects.php:217
+#: class_subjects.php:217 classes.php:204 subjects.php:179 users.php:173
 msgid "Delete"
 msgstr "Usuń"
 
@@ -126,35 +126,35 @@ msgstr "nowa klasa"
 msgid "delete"
 msgstr "usuń"
 
-#: classes.php:131
+#: classes.php:129
 msgid "Class name"
 msgstr "Nazwa klasy"
 
-#: classes.php:136
+#: classes.php:134
 msgid "Starting year"
 msgstr "Rok rozpoczęcia"
 
-#: classes.php:142
+#: classes.php:140
 msgid "Tutor"
 msgstr "Wychowawca"
 
-#: classes.php:153 subjects.php:121
+#: classes.php:151 subjects.php:121
 msgid "save"
 msgstr "zapisz"
 
-#: classes.php:177 settings.php:111 users.php:142 install/index.php:87
+#: classes.php:175 settings.php:111 users.php:142 install/index.php:87
 msgid "Name"
 msgstr "Imię"
 
-#: classes.php:181 settings.php:115 users.php:146 install/index.php:91
+#: classes.php:179 settings.php:115 users.php:146 install/index.php:91
 msgid "Surname"
 msgstr "Nazwisko"
 
-#: classes.php:185 settings.php:119 users.php:150 install/index.php:61
+#: classes.php:183 settings.php:119 users.php:150 install/index.php:61
 msgid "E-mail"
 msgstr "E-mail"
 
-#: classes.php:193
+#: classes.php:191
 msgid "Parent e-mail"
 msgstr "E-mail rodzica"
 
@@ -263,7 +263,7 @@ msgid "Viewer"
 msgstr "Dyrektor"
 
 #: ajax/get_class_list.php:44 ajax/get_grades.php:241
-#: ajax/get_managed_class_list.php:43
+#: ajax/get_managed_class_list.php:45
 msgid "Students"
 msgstr "Uczniowie"
 
@@ -273,28 +273,28 @@ msgid "Grades"
 msgstr "Oceny"
 
 #: ajax/get_grades.php:65 ajax/get_grades.php:113 ajax/get_grades.php:243
-#: ajax/get_grades.php:289 includes/student.php:92
+#: ajax/get_grades.php:289 includes/student.php:95
 msgid "Semestral"
 msgstr "Semestralna"
 
 #: ajax/get_grades.php:91 ajax/get_grades.php:107 ajax/get_grades.php:267
-#: ajax/get_grades.php:283 includes/student.php:93
+#: ajax/get_grades.php:283 includes/student.php:96
 msgid "Notes"
 msgstr "Uwagi"
 
-#: ajax/get_grades.php:143
+#: ajax/get_grades.php:143 includes/student.php:105
 msgid "Attendance"
 msgstr "Frekwencja"
 
-#: ajax/get_grades.php:146
+#: ajax/get_grades.php:146 includes/student.php:106
 msgid "Absent"
 msgstr "Nieusprawiedliwione"
 
-#: ajax/get_grades.php:147
+#: ajax/get_grades.php:147 includes/student.php:107
 msgid "Explained"
 msgstr "Usprawiedliwione"
 
-#: ajax/get_grades.php:148
+#: ajax/get_grades.php:148 includes/student.php:108
 msgid "Late"
 msgstr "Spóźnienia"
 
@@ -310,16 +310,27 @@ msgstr "Wyślij do wszystkich"
 msgid "Export"
 msgstr "Eksportuj"
 
-#: ajax/get_managed_class_list.php:69 ajax/get_managed_student.php:64
-#: ajax/get_managed_subject.php:55
+#: ajax/get_managed_class_list.php:71 ajax/get_managed_student.php:67
 msgid "new student"
 msgstr "nowy uczeń"
 
-#: ajax/sendone.php:49
+#: ajax/sendall.php:48 ajax/sendone.php:50
+msgid "E-mail not set"
+msgstr "E-mail nie został ustawiony"
+
+#: ajax/sendall.php:57
+msgid "All messages sent"
+msgstr "Wysłano wszystkie wiadomości"
+
+#: ajax/sendall.php:60
+msgid "Not all messages were sent :("
+msgstr "Niektóre wiadomości nie zostały wysłane"
+
+#: ajax/sendone.php:53
 msgid "Message sent successfully"
 msgstr "Wiadomość wysłana"
 
-#: ajax/sendone.php:51
+#: ajax/sendone.php:56
 msgid "Message not sent :("
 msgstr "Nie udało się wysłać wiadomości"
 

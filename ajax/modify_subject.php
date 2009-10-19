@@ -1,6 +1,6 @@
 <?php
 /*
- *      change_subject.php
+ *      modify_subject.php
  *
  *      Copyright 2009 fae <fae@onet.eu>
  *

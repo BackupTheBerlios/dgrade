@@ -1,6 +1,6 @@
 <?php
 /*
- *      save_grades.php
+ *      modify_grade.php
  *
  *      Copyright 2009 fae <fae@onet.eu>
  *

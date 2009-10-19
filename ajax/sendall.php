@@ -43,12 +43,27 @@ if ( $user->get_level() != 0 && $user->get_uid() != $class->get_tutorid() )
 
 $email = $user->get_email();
 
-if ( empty($email) )
-	die('E-mail not set');
-
-foreach ( $class->students as $st ) {
-	$student = new DGradeStudent($st);
-	$student->send($_GET['semid'], $email);
+if ( empty($email) ) {
+	$err = 1;
+	$msg = gettext('E-mail not set');
+} else {
+	$ret = true;
+	foreach ( $class->students as $st ) {
+		$student = new DGradeStudent($st);
+		$ret = $ret && $student->send($_GET['semid'], $email);
+	}
+	if ( $ret ) {
+		$err = 0;
+		$msg = gettext('All messages sent');
+	} else {
+		$err = 1;
+		$msg = gettext('Not all messages were sent :(');
+	}
 }
 
 ?>
+
+{
+"status": "<?php echo $err; ?>",
+"msg": "<?php echo $msg; ?>"
+}

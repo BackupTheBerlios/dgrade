@@ -1,6 +1,6 @@
 <?php
 /*
- *      save_student_info.php
+ *      modify_student.php
  *
  *      Copyright 2009 fae <fae@onet.eu>
  *

@@ -88,6 +88,9 @@ class DGradeStudent
 			return false;
 		$semname = $dblink->get_semester_name($semid);
 		$grades = $dblink->get_grades($this->id, $semid);
+		$attjunk = array();
+		$attendance = $dblink->get_attendance($this->id, $semid, $attjunk);
+		unset($attjunk); /* don't need this */
 		$msg = '';
 		$semestral = gettext('Semestral');
 		$notes = gettext('Notes');
@@ -99,6 +102,10 @@ class DGradeStudent
 				$msg .= $notes . ': ' . $g['notes'] . "\n";
 			$msg .= "\n";
 		}
+		$msg .= gettext('Attendance') . ":\n"
+			. gettext('Absent') . ': ' . $attendance['absent'] . "\n"
+			. gettext('Explained') . ': ' . $attendance['explained'] . "\n"
+			. gettext('Late') . ': ' . $attendance['late'] . "\n";
 		$subject = "[dgrade] {$info['name']} {$info['surname']} - {$semname}";
 		$msg = wordwrap($msg);
 		$headers = "From: {$from}\r\n";

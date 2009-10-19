@@ -1,6 +1,6 @@
 <?php
 /*
- *      change_semester.php
+ *      modify_semester.php
  *
  *      Copyright 2009 fae <fae@onet.eu>
  *
