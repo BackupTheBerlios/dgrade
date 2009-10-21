@@ -63,17 +63,17 @@ class DGradeDB
 
 	public function query( $query ) /* public for do_install.php */
 	{
-		return pg_query($this->conn, $query);
+		return @pg_query($this->conn, $query);
 	}
 
 	private function prepare( $name, $query )
 	{
-		return pg_prepare($this->conn, $name, $query);
+		return @pg_prepare($this->conn, $name, $query);
 	}
 
 	private function execute( $name, $params )
 	{
-		return pg_execute($this->conn, $name, $params);
+		return @pg_execute($this->conn, $name, $params);
 	}
 
 	public function get_error()
